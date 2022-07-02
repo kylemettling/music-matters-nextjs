@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { supabase } from './api/supabase'
+import { supabase } from '../src/api/supabase'
 import { useRouter } from 'next/router'
 import { gql, useLazyQuery } from '@apollo/client'
 import { useAppState } from './../lib/state/PageWrapper'
