@@ -2,6 +2,7 @@ import { ApolloServer } from 'apollo-server-micro'
 import { makeExecutableSchema } from 'graphql-tools'
 import Cors from 'micro-cors'
 import connectDb from '../../lib/mongoose'
+// import connectDb from '../../lib/mongoose'
 import { chordbookTypeDefs } from './graphql/chordbook/typedefs.js'
 import { userTypeDefs } from './graphql/user/typedefs.js'
 import { chordbookMutations } from './graphql/chordbook/mutations'
@@ -38,9 +39,15 @@ export default cors(async (req, res) => {
 		res.end()
 		return false
 	}
-
-	await startServer
-	await server.createHandler({ path: '/api/graphql' })(req, res)
+	if (process.env === 'production') {
+		console.log('production!')
+		const path = '/src/api/graphql'
+		await startServer
+		await server.createHandler({ path })(req, res)
+	} else {
+		await startServer
+		await server.createHandler({ path: 'api/graphql' })(req, res)
+	}
 })
 // connectDb()
 

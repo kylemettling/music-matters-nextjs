@@ -28,9 +28,12 @@ function MyApp({ Component, pageProps }) {
 		setThemeToggle(!themeToggle)
 	}
 	async function signIn() {
-		const { error, data } = await supabase.auth.signIn({
-			provider: 'google',
-		})
+		const { error, data } = await supabase.auth.signIn(
+			{
+				provider: 'google',
+			},
+			{ redirectTo: window.location.origin }
+		)
 		if (error) {
 			console.log({ error })
 		}
