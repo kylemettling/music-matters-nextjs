@@ -9,7 +9,7 @@ import { Chordbook } from '../../components/Chordbook'
 import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { supabase } from '../api/supabase'
+// import { supabase } from '../api/supabase'
 import { gql, useLazyQuery, useQuery, useMutation } from '@apollo/client'
 
 // const GET_USER_TRACK = gql`

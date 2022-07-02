@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Search from '../components/Search'
-import { supabase } from './api/supabase'
+import { supabase } from '../pages/api/supabase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
