@@ -57,10 +57,10 @@ export default function TrackDetail({ session }) {
 		variables: { songId: id, userId: session?.user?.id },
 		skip: !skip && !session,
 	})
-	const { loadChordbooks } = useChordbook()
+	const { loadChordbooks } = useChordbook(null)
 	//   const [getData, { data: trackData, loading, error }] =
 	//   useLazyQuery(GET_USER_TRACK);
-	const [loadedChordbooks, setLoadedChordbooks] = useState(loadChordbooks(id))
+	const [loadedChordbooks, setLoadedChordbooks] = useState()
 	const {
 		songTitle,
 		songArtist,
@@ -137,6 +137,10 @@ export default function TrackDetail({ session }) {
 	//   }
 	// findUser()
 	useEffect(() => {
+		if (typeof window !== 'undefined') {
+			console.log('getting localStorage')
+			setLoadedChordbooks(loadChordbooks(id))
+		}
 		getTrack(id)
 	}, [])
 	useEffect(() => {
