@@ -1,31 +1,31 @@
-import { supabase } from "./api/supabase";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { supabase } from './src/api/supabase'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 export default function Logout() {
-  const router = useRouter();
+	const router = useRouter()
 
-  useEffect(() => {
-    const initialize = async () => await supabase.auth.api.signOut();
+	useEffect(() => {
+		const initialize = async () => await supabase.auth.api.signOut()
 
-    initialize();
+		initialize()
 
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        const body = JSON.stringify({ event, session });
-        const headers = new Headers({ "Content-Type": "application/json" });
-        await fetch("/", {
-          method: "POST",
-          body,
-          headers,
-          credentials: "same-origin",
-        });
-        router.push("/");
-      }
-    );
-    return () => {
-      authListener.unsubscribe();
-    };
-  }, []);
-  return <></>;
+		const { data: authListener } = supabase.auth.onAuthStateChange(
+			async (event, session) => {
+				const body = JSON.stringify({ event, session })
+				const headers = new Headers({ 'Content-Type': 'application/json' })
+				await fetch('/', {
+					method: 'POST',
+					body,
+					headers,
+					credentials: 'same-origin',
+				})
+				router.push('/')
+			}
+		)
+		return () => {
+			authListener.unsubscribe()
+		}
+	}, [])
+	return <></>
 }
