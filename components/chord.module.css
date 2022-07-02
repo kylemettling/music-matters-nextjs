@@ -1,0 +1,119 @@
+.chordHeader {
+	text-align: center;
+	justify-self: center;
+	align-content: center;
+	color: var(--cardTextColor);
+	margin-bottom: -18px;
+	position: relative;
+	z-index: 99998;
+}
+.chordName,
+.chordDegree.blank {
+	z-index: 99999;
+	color: var(--chordTextColor);
+	background: var(--selectBackgroundColor);
+	border-radius: var(--borderRadius);
+	outline: 2px var(--chordOutlineColor) solid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	cursor: pointer;
+	height: 1.75rem;
+	margin: 0 auto;
+	max-width: calc(100% - 1.5rem);
+}
+.chordDetail {
+	--chordTextColor: var(--lightGrey);
+	color: var(--textColor);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	justify-self: center;
+	align-content: center;
+	border: 3px var(--chordOutlineColor) solid;
+	border-radius: var(--borderRadius);
+	height: 275px;
+	width: 10rem;
+}
+.chordDetail:focus {
+	outline: 2px var(--white) solid;
+}
+.chordRootSelect {
+	--selectBackgroundColor: var(--green2);
+	font-size: var(--smallText);
+	font-weight: initial;
+	font-size: var(--baseFontSize);
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none; /* Remove default arrow */
+	/* background-image: url(...);   Add custom arrow */
+	text-align: center;
+	cursor: pointer;
+	background: var(--background);
+	color: var(--chordTextColor);
+}
+.keyModeSelectCon {
+	background-color: var(--darkGrey);
+}
+
+.create:hover {
+	background-color: var(--green2);
+	color: var(--selectTextColor);
+	color: var(--selectTextColor);
+	outline: 2px var(--white) solid;
+}
+.remove:focus {
+	outline: 2px var(--red) solid;
+}
+
+.create:focus {
+	outline: 2px var(--green2) solid;
+}
+
+.keyModeSubmit:hover {
+	background-color: var(--darkGrey);
+	color: var(--cardTextColor);
+	outline: 2px var(--white) solid;
+	/* font-weight: bold; */
+}
+.keyModeReset:focus,
+.keyModeSubmit:focus {
+	outline: 2px var(--white) solid;
+}
+
+.chordHeader .keyModeSelectCon::before {
+	transform: translateY(-150px);
+}
+.chordHeader .keyModeSelectCon {
+	display: flex;
+	gap: 0.2rem;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	transition: transform 0.4s ease-in-out;
+}
+.chordRootSelectOption {
+	height: 30px;
+}
+.chordDegree.blank {
+	cursor: grab;
+}
+.deleteChord {
+	background-color: blue;
+	cursor: pointer;
+}
+.chordFooter {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.chordControl {
+	opacity: 0;
+}
+/* .chordControl:hover {
+	transition: opacity 0.3s ease-in-out;
+	cursor: crosshair;
+	opacity: 1;
+} */

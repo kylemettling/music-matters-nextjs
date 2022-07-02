@@ -1,0 +1,208 @@
+.chordbook {
+	display: flex;
+	text-align: center;
+	/* margin-bottom: 0.25em; */
+	/* max-height: 275px; */
+	padding: 0 1em;
+	margin-bottom: 0.5rem;
+	/* padding-top: 2.5em; */
+	/* justify-content: ; */
+}
+.chordbook:first-child {
+	padding-top: 2.5em;
+}
+.chordbook:first-child .chordbookHeader:first-of-type {
+	height: 275px;
+}
+.chordbookHeader {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-self: flex-start;
+	flex: 0 0 27em;
+}
+.chordbook select {
+	/* --selectBackgroundColor: var(--green2); */
+	/* color: var(--selectTextColor); */
+	/* background: var(--selectBackgroundColor); */
+	border: 2px var(--chordOutlineColor) solid;
+}
+/* button,
+select {
+  cursor: pointer;
+} */
+.chordbookHeader {
+	background-color: var(--darkGrey);
+}
+.chordbookHeader button {
+	color: var(--white);
+	background: var(--selectBackgroundColor);
+	outline: 2px var(--chordOutlineColor) solid;
+}
+.chordbookHeader {
+	background: var(--darkGrey);
+	border-right: 8px var(--chordOutlineColor) solid;
+	border-left: 8px var(--chordOutlineColor) solid;
+	color: var(--white);
+	gap: 0.5rem;
+}
+.chordbookHeader h5 {
+	/* height: 1em; */
+	text-transform: capitalize;
+}
+.chordbookHeader h5 span:first-child {
+	text-decoration: underline;
+}
+.chordbookHeader input {
+	/* font-size: var(-h5); */
+	/* max-width: calc(100% - 5rem); */
+	/* min-width: calc(100% - 5rem); */
+	padding: 0;
+	text-align: center;
+	text-transform: capitalize;
+	/* height: 2.5em; */
+	/* margin: 0; */
+}
+.chordbookHeader:nth-child(1) {
+	/* color: blue; */
+}
+.chords {
+	display: flex;
+	justify-content: space-evenly;
+	/* align-items: center; */
+	text-align: center;
+	flex: 7 1 0;
+	height: 275px;
+	/* outline: none; */
+}
+.blur {
+	animation: blurIn 0.05s forwards;
+	box-shadow: var(--level-5);
+	transform: scale(0.88);
+}
+@keyframes blurIn {
+	0% {
+		filter: blur(0px);
+	}
+	50% {
+		filter: blur(0.5px);
+	}
+	100% {
+		filter: blur(1.15px);
+	}
+}
+.keyModeSelect {
+	display: flex;
+	flex-direction: column;
+	/* align-items: space-evenly; */
+	gap: 0.5rem;
+	/* justify-items: center; */
+	/* justify-content: center; */
+	/* width: 50%; */
+	/* padding-left: 50%; */
+}
+.keyModeSelect div {
+	display: flex;
+	/* align-items: space-between; */
+	/* align-content: space-between; */
+	justify-content: space-between;
+	gap: 0.45em;
+}
+.keyModeSelect div .control {
+	display: flex;
+	/* flex-direction: row; */
+	/* gap: 0.45em; */
+	/* align-items: center; */
+	/* align-content: space-between; */
+}
+.keyModeSelect div .suggestedScale {
+	text-transform: capitalize;
+}
+.keyModeSubmit,
+.keyModeReset {
+	/* color: var(--selectTextColor); */
+	/* color: var(--cardTextColor); */
+	font-weight: bold;
+	/* outline: 2px var(--selectTextColor) / solid; */
+}
+.keyModeReset:hover,
+.remove:hover {
+	background-color: var(--red);
+	color: var(--selectTextColor);
+	outline: 2px var(--white) solid;
+}
+.keyModeReset,
+.remove,
+.create,
+.keyModeSubmit {
+	transition: all 0.15s ease-in-out;
+}
+.chordbookControls {
+	/* font-weight: bold; */
+	/* font-size: var(--larText); */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 1em;
+	align-items: center;
+	/* flex: 1 1 0; */
+}
+.innerTitleInput {
+	display: flex;
+	background: var(--darkGrey);
+	color: var(--cardTextColor);
+	font-family: var(--headingFont);
+	font-size: var(--h5);
+	outline: 2px var(--cardTextColor) solid;
+	text-transform: capitalize;
+	margin: 0;
+	/* justify-content: center;
+	align-content: center;
+	text-align: center; */
+	height: 2.5rem;
+}
+.bookTitle:focus,
+.innerTitleInput:focus {
+	outline: 2px var(--white) solid;
+}
+.innerTitle {
+	display: flex;
+	align-self: center;
+	font-size: var(--h5);
+	font-family: var(--headingFont);
+	text-transform: capitalize;
+	text-align: center;
+}
+.bookTitle {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	text-align: center;
+}
+.bookTitle:hover {
+	cursor: text;
+}
+.create:hover {
+	background-color: var(--green2);
+	color: var(--selectTextColor);
+	color: var(--selectTextColor);
+	outline: 2px var(--white) solid;
+}
+.remove:focus {
+	outline: 2px var(--red) solid;
+}
+
+.create:focus {
+	outline: 2px var(--green2) solid;
+}
+
+.keyModeSubmit:hover {
+	background-color: var(--darkGrey);
+	color: var(--cardTextColor);
+	outline: 2px var(--white) solid;
+	/* font-weight: bold; */
+}
+.keyModeReset:focus,
+.keyModeSubmit:focus {
+	outline: 2px var(--white) solid;
+}

@@ -1,0 +1,21 @@
+scalar Date
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  userId: String
+  chordbooks: [Chordbook]
+  createdAt: Date!
+  avatar: String
+}
+
+type Query {
+  user(id: ID!): User
+  userChordbooks(id: ID!): [Chordbook]
+  chordbook(id: ID!): Chordbook
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User
+}

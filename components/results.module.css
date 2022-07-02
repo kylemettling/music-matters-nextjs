@@ -1,0 +1,147 @@
+.results {
+	/* align-content: center; */
+	/* align-items: center; */
+	/* flex-wrap: wrap; */
+	grid-template-columns: repeat(3, 1fr);
+	/* width: 200px; */
+	/* grid-column-gap: 1rem; */
+	/* column-gap: 0%; */
+	grid-gap: 0.333rem;
+	margin: 1rem 7rem;
+	justify-content: space-around;
+	/* align-content: center; */
+	padding: 0;
+	/* width: 100%; */
+	/* max-width: 400px; */
+}
+.profileResults {
+	/* align-content: center; */
+	/* align-items: center; */
+	/* flex-wrap: wrap; */
+	grid-template-columns: repeat(1, 1fr);
+	/* width: 200px; */
+	/* grid-column-gap: 1rem; */
+	/* column-gap: 0%; */
+	/* grid-gap: 0.333rem; */
+	/* margin: 0 5rem; */
+	/* width: 25vw; */
+	/* max-width: 400px; */
+	justify-content: space-around;
+	align-content: center;
+	padding: 0 auto;
+	/* width: 100%; */
+	/* max-width: 400px; */
+}
+.result {
+	/* padding: 0.25em 0.333em; */
+	padding: 0.25rem 0.75rem;
+	/* justify-content: flex-end; */
+	/* align-content: center; */
+	align-items: center;
+	margin: 0;
+	/* width: 500px; */
+}
+.result:hover {
+	transform: scale(1.05);
+}
+.result {
+	transition: transform 0.15s ease-in;
+	transition-timing-function: cubic-bezier(1, -0.01, 0.85, 2.43);
+}
+.result a {
+	text-decoration: none;
+	color: var(--textColor);
+}
+.album {
+}
+.releaseTime {
+	/* font-size: var(--medText); */
+	/* flex-direction: column; */
+	/* align-content: flex-end; */
+	justify-content: flex-end;
+	gap: 2.5rem;
+}
+.resultName {
+	flex-direction: column;
+	text-align: center;
+}
+.resultDetails {
+	/* text-overflow: ellipsis; */
+	/* overflow: hidden;
+	max-width: 25ch;
+	white-space: nowrap;  */
+	/* padding: 0.55rem; */
+	flex-direction: column;
+	/* justify-self: space-between; */
+	/* max-width: 280px; */
+	text-align: right;
+	/* align-items: center; */
+	gap: 1em;
+	color: var(--textColor);
+}
+.albumImage {
+	border-radius: var(--borderRadius);
+}
+.result:hover,
+.artist:hover,
+.title:hover,
+.albumImage:hover {
+	--blurAmount: 3px;
+	box-shadow: var(--level-2);
+	outline: 1px var(--chordOutlineColor) solid;
+	/* border-radius: 2px; */
+	/* position: static; */
+}
+
+.albumImage:hover {
+	border-radius: var(--borderRadius);
+}
+/* .result:hover {
+	border-radius: var(--borderRadius);
+} */
+.title:hover,
+.artist:hover,
+.albumImage:hover {
+	cursor: pointer;
+}
+.releaseTime {
+	cursor: default;
+}
+.title {
+	font-size: var(--medText);
+}
+.artist {
+	font-size: var(--smallText);
+}
+.titleCon {
+	overflow: hidden;
+	width: 25ch;
+	white-space: nowrap;
+	align-self: flex-end;
+}
+@media screen and (max-width: 1080px) {
+	.results {
+		grid-template-columns: repeat(2, 1fr);
+		padding: 0;
+		justify-content: space-around;
+		/* align-items: flex-start; */
+		/* padding: 0 2rem; */
+	}
+	.titleCon {
+		width: 18ch;
+	}
+}
+@media screen and (max-width: 736px) {
+	.results {
+		grid-template-columns: repeat(1, 1fr);
+		padding: 0;
+		justify-content: space-around;
+		/* justify-content: center; */
+	}
+	.result {
+		max-width: 400px;
+	}
+	.titleCon {
+		/* width: 18ch; */
+	}
+}

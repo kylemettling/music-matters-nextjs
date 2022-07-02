@@ -1,0 +1,20 @@
+.chordImage Image,
+.chordImageZoom span,
+.chordImage {
+	cursor: pointer;
+	border-radius: var(--borderRadius);
+}
+.chordImageZoom {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transform: scale(3.8);
+	transition: transform 1s ease-in;
+	border: 1px dotted var(--chordOutlineColor);
+	border-radius: var(--borderRadius);
+	z-index: 99999;
+	cursor: pointer;
+	/* max-height: 8.88rem; */
+	/* max-width: 6, 9rem; */
+}

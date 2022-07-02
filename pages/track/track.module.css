@@ -1,0 +1,66 @@
+.track {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	padding-top: 0.75rem;
+}
+.chordbookContainer {
+	padding-bottom: 10em;
+	flex-direction: column;
+}
+.detailCard {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-gap: 1.5rem;
+	padding: 0 1.75rem;
+}
+
+.details,
+.artistImageCon {
+	display: flex;
+	flex-direction: column;
+	justify-self: center;
+	align-items: flex-end;
+	padding: 0 auto;
+}
+.details {
+	/* padding: 0; */
+	margin: 0;
+	/* justify-content: space-around; */
+}
+.trackTitle {
+	overflow: hidden;
+	max-width: 30ch;
+	white-space: nowrap;
+}
+.trackTitle:hover,
+.trackArtist:hover,
+.trackTitle:focus,
+.trackArtist:focus,
+.trackAlbum:focus,
+.trackAlbum:hover {
+	box-shadow: var(--level-4);
+	outline: 2px var(--cursorOutlineColor) solid;
+	border-radius: 3px;
+}
+
+.trackCover:hover,
+.trackCover:focus,
+.trackCoverCon:hover,
+.artistImage:focus,
+.artistImage:hover,
+.artistImageCon:hover {
+	border-radius: var(--borderRadius);
+	outline: 2px var(--cursorOutlineColor) solid;
+}
+.trackCoverCon,
+.artistImageCon {
+	border-radius: var(--borderRadius);
+}
+.artistImage,
+.trackCover {
+	/* padding: 2rem; */
+	border-radius: var(--borderRadius);
+}
