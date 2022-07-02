@@ -5,7 +5,7 @@ import { BackButton } from './BackButton'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './header.module.css'
-import { supabase } from '../src/api/supabase'
+import { supabase } from '../pages/api/supabase'
 import { useRouter } from 'next/router'
 
 export default function Header({ session }) {

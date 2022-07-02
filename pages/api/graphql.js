@@ -39,15 +39,15 @@ export default cors(async (req, res) => {
 		res.end()
 		return false
 	}
-	if (process.env === 'production') {
-		console.log('production!')
-		const path = '/src/api/graphql'
-		await startServer
-		await server.createHandler({ path })(req, res)
-	} else {
-		await startServer
-		await server.createHandler({ path: 'api/graphql' })(req, res)
-	}
+	// if (process.env === 'production') {
+	// 	console.log('production!')
+	// 	const path = '/src/api/graphql'
+	// 	await startServer
+	// 	await server.createHandler({ path })(req, res)
+	// } else {
+	await startServer
+	await server.createHandler({ path: '/api/graphql' })(req, res)
+	// }
 })
 // connectDb()
 

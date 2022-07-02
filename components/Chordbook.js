@@ -356,14 +356,14 @@ export function Chordbook({
 	async function updateChordbookData() {}
 	useEffect(() => {
 		if (
-			(!loadedBooks || !loadedBooks.length) &&
+			(!loadedBooks || !loadedBooks.length || !chordbooks) &&
 			songKey &&
 			songKeyCenterQuality
 		) {
 			console.log('no books here')
 			setChordbooks(createStartingBook(songKey, songKeyCenterQuality, trackId))
 		}
-	}, [loadedBooks, songKey, songKeyCenterQuality])
+	}, [loadedBooks, songKey, songKeyCenterQuality, trackId])
 
 	if (!chordbooks) return <div>HMMM</div>
 	if (error) return <pre>{JSON.stringify(error, null, 4)}</pre>
