@@ -1,4 +1,4 @@
-import { supabase } from './api/supabase'
+import { supabase } from '../src/api/supabase'
 import Image from 'next/image'
 
 export default function Protected({ user }) {
