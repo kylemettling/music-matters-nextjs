@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useAppState } from '../../lib/state'
 import axios from 'axios'
 import { Result } from '../../components/Result'
-import styles from '../../components/results.module.css'
+import styles from '../../components/result.module.css'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Search from '../../components/Search'
@@ -26,9 +26,7 @@ export default function Results() {
 			return
 		}
 
-		if (!token) {
-			refreshToken()
-		}
+		refreshToken()
 		// const getData = async () => {
 		const res = await axios(
 			`https://api.spotify.com/v1/search?q=${query}&type=track`,
@@ -64,7 +62,7 @@ export default function Results() {
 		//   setChordbooks([]);
 		//   clearTrackData();
 		// };
-	}, [])
+	}, [query])
 
 	// if (!query) return null
 
@@ -75,16 +73,7 @@ export default function Results() {
 				<title>Results | {query} </title>
 				<meta name='description' content='Music Matters - Audio Arranged' />
 			</Head>
-			<Search
-			//  getSpotifyData={getSpotifySearchData}
-			/>
-			{/* <span>
-				{`key:${songKey}, mode:${songKeyCenterQuality}, books:${JSON.stringify(
-					chordbooks,
-					null,
-					4
-				)}`}
-			</span> */}
+			<Search />
 			{results && (
 				<ul className={`${styles.results} grid`}>
 					{results &&

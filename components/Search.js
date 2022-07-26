@@ -2,7 +2,6 @@ import styles from './search.module.css'
 // import './style.css'
 import { Fragment, useEffect, useState } from 'react'
 import axios from 'axios'
-import Results from './Results'
 import { useAppState } from '../lib/state'
 import chordNotes from '../lib/state'
 import Link from 'next/link'
@@ -64,7 +63,7 @@ export default function Search({ getSpotifyData }) {
 		}
 		clearTrackData()
 		setOptionState(optionState)
-	}, [])
+	}, [searchQuery])
 
 	return (
 		<Fragment>

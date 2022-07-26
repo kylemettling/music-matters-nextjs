@@ -223,7 +223,7 @@ export function Chordbook({
 	const onDragUpdate = useCallback(() => {}, [])
 	// the only one that is required
 	const onDragEnd = useCallback((result) => {
-		// console.log("chordbooks", chordbooks);
+		console.log('drag', result)
 		const { destination, source, droppableId } = result
 		// adding blur animation to non-dragging chords
 		console.log(
@@ -263,36 +263,38 @@ export function Chordbook({
 			} else {
 				affectedRange = range(destination.index, source.index)
 			}
-
 			// if songs affected (+ or -) update positions
-			const currentBookIndex = chordbooks.findIndex((book) =>
-				book.id === parseInt(source.droppableId) ? book : null
+			// const currentBookIndex = chordbooks.findIndex((book) =>
+			// 	book.id === parseInt(source.droppableId) ? book : null
+			// )
+			const currentChords = chordbooks[destination.droppableId].chords.slice()
+			console.log(
+				'🚀 ~ file: Chordbook.js ~ line 272 ~ onDragEnd ~ currentChords',
+				currentChords
 			)
-			const currentBook = chordbooks[currentBookIndex]
-			const reorderedChordbook = chordbooks[currentBookIndex].chords.map(
-				(chord) => {
-					if (chord.id === parseInt(result.draggableId)) {
-						chord.position = destination.index
-						// console.log('condition 1', chord)
+			const reorderedChordbook = currentChords.map((chord) => {
+				if (chord.id === parseInt(result.draggableId)) {
+					chord.position = destination.index
+					// console.log('condition 1', chord)
+					return chord
+				} else if (affectedRange.includes(chord.position)) {
+					if (directionOfDrag === 'GREATER') {
+						chord.position = chord.position - 1
+						console.log('condition 2.1', chord)
 						return chord
-					} else if (affectedRange.includes(chord.position)) {
-						if (directionOfDrag === 'GREATER') {
-							chord.position = chord.position - 1
-							// console.log('condition 2.1', chord)
-							return chord
-						} else if (directionOfDrag === 'LESS') {
-							chord.position = chord.position + 1
-							// console.log('condition 2.2', chord)
-							return chord
-						}
-					} else {
-						// console.log('condition 3', chord)
+					} else if (directionOfDrag === 'LESS') {
+						chord.position = chord.position + 1
+						console.log('condition 2.2', chord)
 						return chord
 					}
+				} else {
+					// console.log('condition 3', chord)
+					return chord
 				}
-			)
-			currentBook.chords = reorderedChordbook
-			chordbooks[currentBookIndex] = currentBook
+			})
+			console.log(reorderedChordbook)
+			// currentBook.chords = reorderedChordbook
+			// chordbooks[destination.droppableId] = currentBook
 			//   updateDbChordbook({
 			//     variables: {
 			//       songId: trackId,
@@ -340,7 +342,8 @@ export function Chordbook({
 			// setChordbooks(newIds)
 		}
 		const newIds = sanitizeIds(chordbooks)
-		console.log('update after shuffle', newIds)
+		// console.log('update after shuffle', newIds)
+		// setChordbooks(newIds)
 		if (session) {
 			updateDbChordbook({
 				variables: {

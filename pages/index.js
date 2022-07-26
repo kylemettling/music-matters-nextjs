@@ -3,7 +3,9 @@ import Search from '../components/Search'
 import { supabase } from '../pages/api/supabase'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { Cards } from '../components/Cards'
 import Link from 'next/link'
+import { cards } from '../lib/state/cards'
 
 export default function Home({ user, session }) {
 	const [profile, setProfile] = useState('')
@@ -42,19 +44,7 @@ export default function Home({ user, session }) {
 			<main>
 				<h2>Do you have something playing?</h2>
 				<Search />
-				{/* {!session && !profile ? (
-					<div>
-						<button onClick={() => signIn()}>Sign In w/ Google</button>
-						<span>Or continue as a guest!</span>
-					</div>
-				) : (
-					<div>
-						<h1>Welcome back, {profile?.user_metadata?.full_name}!</h1>
-						<pre style={{ textAlign: 'center' }}>
-							{JSON.stringify(profile, null, 2)}
-						</pre>
-					</div>
-				)} */}
+				<Cards cards={cards} />
 			</main>
 		</div>
 	)

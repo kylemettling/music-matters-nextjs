@@ -6,7 +6,7 @@ import { useAppState } from './../lib/state/PageWrapper'
 import { spotify } from '../components/config/connection'
 import axios from 'axios'
 import { Result } from './../components/Result'
-import styles from '../components/results.module.css'
+import styles from '../components/result.module.css'
 import Image from 'next/image'
 const GET_ALL_USER_TRACKS = gql`
 	query userChordbooks($userId: String!) {
@@ -62,7 +62,6 @@ export default function Profile() {
 			getStoredToken()
 		}
 		const filter = trackIds.map((track) => track.songId).join(',')
-		console.log('ids', spotify.urls.getTrack + filter)
 		const options = {
 			method: 'GET',
 			url: spotify.urls.getTracks + filter,
@@ -88,14 +87,15 @@ export default function Profile() {
 		<div>
 			<div></div>
 			<h2>{`${profile.user_metadata.full_name}'s recent books:`}</h2>
-			{/* <span>{JSON.stringify(allTracks)}</span> */}
-			<ul className={styles.profileResults}>
+			<ul className={`${styles.profileResults} grid`}>
 				{allTracks &&
 					allTracks.map((track, i) => {
-						return <Result key={i} track={track} index={i} />
+						return <Result key={i} track={track} index={i} profile={true} />
 					})}
 			</ul>
-			{loading && <div>Loading user chordbooks...</div>}
+			{loading && (
+				<div>{`Loading ${profile.user_metadata.full_name}'s chordbooks...`}</div>
+			)}
 		</div>
 	)
 }

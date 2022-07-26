@@ -119,6 +119,7 @@ nav {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: flex-end;
+	/* align-items: space-around; */
 	/* width: 25vw; */
 	gap: 1.15rem;
 	padding: 1rem 1.5rem;
@@ -342,10 +343,24 @@ button.small {
 	nav {
 		flex-direction: column;
 	}
+	main h2 {
+		margin: 1rem 0;
+		padding: 0 8rem;
+		text-align: center;
+	}
 }
 @media screen and (max-width: 736px) {
 	nav {
 		flex-direction: column;
+		gap: 0;
+		padding: 3px;
+		outline: 2px var(--chordOutlineColor) solid;
+		background-color: var(--background);
+	}
+	main h2 {
+		margin: 1rem 0;
+		padding: 0;
+		text-align: center;
 	}
 }
 @media only screen and (min-width: 500px) {
