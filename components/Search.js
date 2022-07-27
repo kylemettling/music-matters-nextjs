@@ -32,7 +32,9 @@ export default function Search() {
 					placeholder='enter track, artist, or album'
 					value={searchQuery}
 					onKeyDown={(e) =>
-						e.key === 'Enter' ? router.push(`/search/${searchQuery}`) : null
+						e.key === 'Enter' && searchQuery !== ''
+							? router.push(`/search/${searchQuery}`)
+							: null
 					}
 					onChange={(e) => setSearchQuery(e.target.value)}
 				/>
@@ -52,7 +54,9 @@ export default function Search() {
 				</select>
 				<button
 					type='submit'
-					onClick={() => router.push(`/search/${searchQuery}`)}
+					onClick={() =>
+						searchQuery !== '' ? router.push(`/search/${searchQuery}`) : null
+					}
 				>
 					Fetch!
 				</button>
