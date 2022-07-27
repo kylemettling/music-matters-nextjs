@@ -7,54 +7,13 @@ import chordNotes from '../lib/state'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export default function Search({ getSpotifyData }) {
-	const [artistRequest, setArtistRequest] = useState('synchronicity')
-
-	const [searchResult, setSearchResult] = useState('')
-	const [searchToggle, setSearchToggle] = useState(false)
+export default function Search() {
 	const [optionState, setOptionState] = useState('track')
-	const [searchQuery, setSearchQuery] = useState('synchronicity II')
+	const [searchQuery, setSearchQuery] = useState(
+		process.env.NODE_ENV === 'development' ? 'synchronicity II' : ''
+	)
 	const router = useRouter()
-	// const query = router.query
-	const {
-		token,
-		refreshToken,
-		getStoredToken,
-		isTrackActive,
-		clearTrackData,
-		getScaleChords,
-	} = useAppState()
-
-	// async function getSpotifySearchData(search) {
-	// 	if (!searchQuery) {
-	// 		return
-	// 	}
-
-	// 	if (!token) {
-	// 		refreshToken()
-	// 	}
-	// 	const res = await axios(
-	// 		`https://api.spotify.com/v1/search?q=${search}&type=${optionState}`,
-	// 		{
-	// 			headers: {
-	// 				Authorization: 'Bearer ' + token,
-	// 			},
-	// 			method: 'GET',
-	// 		}
-	// 	).catch((err) => {
-	// 		if (err.status === 401) {
-	// 			refreshToken()
-	// 			getSpotifySearchData()
-	// 		}
-	// 		console.log('Error!!', err)
-	// 	})
-	// 	console.log('After request!!', res)
-	// 	// if (!res) {
-	// 	// 	refreshToken()
-	// 	// 	getSpotifySearchData()
-	// 	// }
-	// 	setSearchResult(res?.data)
-	// }
+	const { token, refreshToken, getStoredToken, clearTrackData } = useAppState()
 
 	useEffect(() => {
 		getStoredToken()
@@ -75,7 +34,6 @@ export default function Search({ getSpotifyData }) {
 					onKeyDown={(e) =>
 						e.key === 'Enter' ? router.push(`/search/${searchQuery}`) : null
 					}
-					// onSubmit={() => getSpotifySearchData(searchQuery)}
 					onChange={(e) => setSearchQuery(e.target.value)}
 				/>
 				<select
@@ -92,17 +50,12 @@ export default function Search({ getSpotifyData }) {
 						Album
 					</option>
 				</select>
-				{/* <Link className={styles.submit} href={`/search/${searchQuery}`}> */}
-				{/* <a> */}
 				<button
 					type='submit'
 					onClick={() => router.push(`/search/${searchQuery}`)}
 				>
-					{/* <button type='submit' onClick={() => getSpotifyData(searchQuery)}> */}
 					Fetch!
 				</button>
-				{/* </a> */}
-				{/* </Link> */}
 			</div>
 			<style jsx>{`
 				select,

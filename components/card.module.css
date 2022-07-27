@@ -1,17 +1,23 @@
 .cards {
-  /* grid-template-columns: repeat(3, 1fr); */
-  /* gap: 5%; */
-  /* padding: 1rem; */
-  padding-top: 25px;
+	grid-template-columns: 1fr 4fr;
+	/* gap: 5%; */
+	/* padding: 1rem; */
+	padding-top: 25px;
 }
 .card {
-  background-color: var(--cardBg);
-  flex-direction: column;
-  text-align: center;
-  margin: 10px 150px;
-  padding: 15px 50px;
-  border-radius: var(--borderRadius);
+	background-color: var(--cardBg);
+	flex-direction: column;
+	text-align: center;
+	margin: 10px 150px;
+	padding: 15px 50px;
+	border-radius: var(--borderRadius);
 }
 .card h4 {
-  margin: 0;
+	margin: 0;
+}
+.video,
+.image {
+	justify-content: center;
+	height: 200px;
+	width: 500px;
 }

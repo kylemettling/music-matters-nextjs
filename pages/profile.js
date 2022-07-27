@@ -84,8 +84,7 @@ export default function Profile() {
 	if (error) return <div>{error}</div>
 	// if (loading) return null
 	return (
-		<div>
-			<div></div>
+		<div style={{ textAlign: 'center' }}>
 			<h2>{`${profile.user_metadata.full_name}'s recent books:`}</h2>
 			<ul className={`${styles.profileResults} grid`}>
 				{allTracks &&

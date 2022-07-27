@@ -42,7 +42,7 @@ export default function Home({ user, session }) {
 			</Head>
 
 			<main>
-				<h2>Do you have something playing?</h2>
+				<h2>Have something playing?</h2>
 				<Search />
 				<Cards cards={cards} />
 			</main>
