@@ -3,7 +3,7 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	padding-top: 25px;
+	padding-top: 15px;
 }
 .main.flex select {
 	outline: 1px solid white;

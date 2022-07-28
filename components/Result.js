@@ -6,7 +6,7 @@ import Image from 'next/image'
 export function Result({ track, index, profile = false }) {
 	return (
 		<Link href={`/track/${track.id}`}>
-			<li className={`${styles.result}  card`} key={index}>
+			<li className={`${styles.result}`} key={index}>
 				<div className={`${styles.resultDetails} `}>
 					<span className={styles.titleCon}>
 						<Link
@@ -40,26 +40,13 @@ export function Result({ track, index, profile = false }) {
 						<span>{track.album.release_date.split('-')[0]}</span>
 					</div>
 				</div>
-				<div
-					// className={styles.album}
-					style={{
-						// margin: '5px',
-						// height: '225px',
-						// width: '225px',
-						display: 'flex',
-						justifyContent: 'center',
-						alignContent: 'center',
-					}}
-				>
+				<div className={styles.imageCon}>
 					<Image
 						className={styles.albumImage}
-						style={
-							{
-								// margin: '3rem',
-							}
-						}
-						height={track.album.images[0].height}
-						width={track.album.images[0].width}
+						layout='fixed'
+						// objectFit='cover'
+						height={250}
+						width={250}
 						// objectFit='contain'
 						src={
 							track.album.images[0].url ||

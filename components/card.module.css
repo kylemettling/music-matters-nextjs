@@ -1,23 +1,102 @@
 .cards {
-	grid-template-columns: 1fr 4fr;
-	/* gap: 5%; */
-	/* padding: 1rem; */
+	grid-template-columns: 1.25fr 0.5fr;
+	padding: 0 42px;
 	padding-top: 25px;
+	padding-bottom: 50px;
+	margin: 0 150px;
 }
 .card {
+	/* grid-auto-rows: minmax(min-content, max-content); */
 	background-color: var(--cardBg);
 	flex-direction: column;
 	text-align: center;
-	margin: 10px 150px;
-	padding: 15px 50px;
+	align-self: flex-start;
+	justify-content: space-evenly;
+	margin: 20px 20px;
+	padding: 8px 5px;
 	border-radius: var(--borderRadius);
+	margin-bottom: auto;
+	outline: 2px var(--chordOutlineColor) solid;
+}
+.card:nth-of-type(1) {
+	grid-column: 1;
+	grid-row: 1;
+}
+.card:nth-of-type(1) .video {
+	max-height: 300px;
+	overflow: hidden;
+}
+.card:nth-of-type(2) {
+	grid-column: 1;
+	grid-row: 2;
+	/* grid-auto-rows: minmax(min-content, max-content); */
+}
+.card:nth-of-type(3) {
+	grid-column: 2;
+	grid-row: 1/3;
+}
+.card:nth-of-type(3) span {
+	padding: 25px;
+}
+.card:nth-of-type(3) .video {
+	height: auto;
+	/* overflow: hidden; */
+}
+.card:last-of-type {
+	grid-column: 1/4;
+	grid-row: 4;
+}
+.card:last-of-type .image {
+	width: 100%;
 }
 .card h4 {
 	margin: 0;
+	text-decoration: underline 5px solid var(--chordOutlineColor);
+}
+.cardBody {
+	font-weight: bold;
+}
+.react-player {
 }
 .video,
 .image {
+	border-radius: var(--borderRadius) !important;
 	justify-content: center;
-	height: 200px;
-	width: 500px;
+	padding: 15px;
+	margin: 0 auto;
+}
+@media screen and (max-width: 1920px) {
+	.cards {
+		/* padding: 0 auto; */
+		/* gap: 1%; */
+		/* padding: 0 42px; */
+		/* grid-auto-rows: minmax(250px, auto); */
+		/* padding-top: 25px; */
+	}
+	.card:last-of-type {
+		grid-column: auto;
+	}
+}
+@media screen and (max-width: 1080px) {
+	.cards {
+		grid-template-columns: repeat(1, 1fr);
+		/* padding: 0 auto; */
+		/* gap: 1%; */
+		/* padding: 0 42px; */
+		/* grid-auto-rows: minmax(250px, auto); */
+		/* padding-top: 25px; */
+	}
+	.card:last-of-type {
+		grid-column: auto;
+	}
+}
+@media screen and (max-width: 736px) {
+	.cards {
+		grid-template-columns: 1fr;
+	}
+	.card:last-of-type {
+		grid-column: auto;
+	}
+}
+@media only screen and (min-width: 500px) {
 }

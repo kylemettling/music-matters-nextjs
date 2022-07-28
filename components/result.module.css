@@ -1,8 +1,8 @@
 .results {
 	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 0.333rem;
-	padding: 25px 5%;
-	margin: 0;
+	/* grid-gap: 0.333rem; */
+	padding: 0;
+	margin: 0 150px;
 }
 .profileResults {
 	grid-template-columns: repeat(3, 1fr);
@@ -14,10 +14,19 @@
 	/* justify-items: center; */
 	padding: 0;
 }
+/* .card {
+	border-radius: var(--borderRadius);
+} */
 .result {
+	/* position: relative; */
 	display: flex;
+	background: var(--cardBg);
+	box-shadow: var(--level-5);
 	align-items: center;
-	/* justify-items: flex-end; */
+	margin: 15px;
+	/* padding: 1rem; */
+	gap: 35px;
+	justify-content: center;
 	transition: transform 0.15s ease-in;
 	transition-timing-function: cubic-bezier(1, -0.01, 0.85, 2.43);
 }
@@ -39,12 +48,24 @@
 .resultDetails {
 	display: flex;
 	flex-direction: column;
-	padding: 12px;
+	/* align-self: center; */
+	justify-content: center;
+	/* width: 400px; */
+	height: 310px;
+	/* padding: 2rem 5rem; */
 	text-align: right;
 	gap: 25px;
 	color: var(--textColor);
 }
+.imageCon {
+	/* position: relative; */
+	/* object-fit: cover; */
+	height: 250px;
+	width: 250px;
+	/* align-items: flex-end; */
+}
 .albumImage {
+	/* height: 30px; */
 	border-radius: var(--borderRadius);
 }
 .result:hover,
@@ -82,7 +103,10 @@
 @media screen and (max-width: 1920px) {
 	.profileResults,
 	.results {
-		/* grid-template-columns: repeat(2, 1fr); */
+		grid-template-columns: repeat(2, 1fr);
+		margin: 0 75px;
+		min-width: 300px;
+		/* padding: 0 15px; */
 	}
 
 	.titleCon {
@@ -91,11 +115,11 @@
 }
 @media screen and (max-width: 1080px) {
 	.results {
-		grid-template-columns: repeat(2, 1fr);
-		justify-items: center;
+		grid-template-columns: repeat(1, 1fr);
+		/* justify-items: center; */
 	}
 	.profileResults {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(1, 1fr);
 		margin: 25px;
 	}
 	.titleCon {
