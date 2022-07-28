@@ -1,195 +1,195 @@
-@import url('https://fonts.googleapis.com/css?family=Space+Mono:400|Work+Sans:400');
+@import url("https://fonts.googleapis.com/css?family=Space+Mono:400|Work+Sans:400");
 
 :root {
-	/* Define Colors as colors */
-	--green: #00ebc7;
-	--green2: #35c680;
-	--lightGreen: #72daa7;
-	--red: #ff5470;
-	--yellow: #fde24f;
-	--black: #1b2d45;
-	--paleBlue: #4747a1;
-	--darkBlue: #00214d;
-	--darkerBlue: #130f21;
-	--darkGrey: #282c34;
-	--grey: #bfbfbf;
-	--medGrey: #b3b3b3;
-	--lightGrey: #f2f4f6;
-	--white: #fff;
-	--offGreen: #2f8096;
+  /* Define Colors as colors */
+  --green: #00ebc7;
+  --green2: #35c680;
+  --lightGreen: #72daa7;
+  --red: #ff5470;
+  --yellow: #fde24f;
+  --black: #1b2d45;
+  --paleBlue: #4747a1;
+  --darkBlue: #00214d;
+  --darkerBlue: #130f21;
+  --darkGrey: #282c34;
+  --grey: #bfbfbf;
+  --medGrey: #b3b3b3;
+  --lightGrey: #f2f4f6;
+  --white: #fff;
+  --offGreen: #2f8096;
 
-	/* Define Colors intentions */
-	--primary: var(--green2);
-	--danger: var(--red);
-	--background: var(--paleBlue);
-	--textColor: var(--white);
-	--buttonTextColor: var(--black);
-	--buttonColor: var(--primary);
-	/* --buttonColor: var(--primary); */
-	--lineColor: var(--grey);
-	--cardBg: var(--darkGrey);
-	--headerBackground: var(--darkBlue);
-	--footerBackground: var(--black);
-	/* --cardTextColor: var(--white); */
-	--cursorOutlineColor: var(--green2);
-	--chordOutlineColor: var(--green2);
-	--chordNameOutlineColor: var(--green2);
-	--selectBackgroundColor: var(--background);
-	--selectTextColor: var(--darkerBlue);
-	--chordNameColor: var(--background);
+  /* Define Colors intentions */
+  --primary: var(--green2);
+  --danger: var(--red);
+  --background: var(--paleBlue);
+  --textColor: var(--white);
+  --buttonTextColor: var(--black);
+  --buttonColor: var(--primary);
+  /* --buttonColor: var(--primary); */
+  --lineColor: var(--grey);
+  --cardBg: var(--darkGrey);
+  --headerBackground: var(--darkBlue);
+  --footerBackground: var(--black);
+  /* --cardTextColor: var(--white); */
+  --cursorOutlineColor: var(--green2);
+  --chordOutlineColor: var(--green2);
+  --chordNameOutlineColor: var(--green2);
+  --selectBackgroundColor: var(--background);
+  --selectTextColor: var(--darkerBlue);
+  --chordNameColor: var(--background);
 
-	/* Styles */
-	--line: solid 1px var(--lineColor);
-	/* --line: dashed 5px var(--yellow); */
+  /* Styles */
+  --line: solid 1px var(--lineColor);
+  /* --line: dashed 5px var(--yellow); */
 
-	/* Type */
-	--headingFont: 'Space Mono', monospace;
-	--bodyFont: 'Work Sans', sans-serif;
-	--baseFontSize: 100%;
-	--h1: 2.33em;
-	--h2: 2.151em;
-	--h3: 1.75em;
-	--h4: 1.55em;
-	--h5: 1.35em;
-	--smallText: 1em;
-	--medText: 1.2em;
-	--larText: 1.35em;
+  /* Type */
+  --headingFont: "Space Mono", monospace;
+  --bodyFont: "Work Sans", sans-serif;
+  --baseFontSize: 100%;
+  --h1: 2.33em;
+  --h2: 2.151em;
+  --h3: 1.75em;
+  --h4: 1.55em;
+  --h5: 1.35em;
+  --smallText: 1em;
+  --medText: 1.2em;
+  --larText: 1.35em;
 
-	/* Elevation */
-	--level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	--level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-		0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	--level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-		0 4px 6px -2px rgba(0, 0, 0, 0.05);
-	--level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-		0 10px 10px -5px rgba(0, 0, 0, 0.04);
-	--level-5: 0 50px 35px -9px rgba(0, 0, 0, 0.1),
-		0 16px 15px -8px rgba(0, 0, 0, 0.04);
+  /* Elevation */
+  --level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --level-5: 0 50px 35px -9px rgba(0, 0, 0, 0.1),
+    0 16px 15px -8px rgba(0, 0, 0, 0.04);
 
-	/* Positioning */
-	--containerPadding: 2.5%;
-	--headerHeight: 4rem;
-	--borderRadius: 10px;
+  /* Positioning */
+  --containerPadding: 2.5%;
+  --headerHeight: 4rem;
+  --borderRadius: 10px;
 }
 
 /* FROM Type Scale */
 body::-webkit-scrollbar {
-	width: 12px; /* width of the entire scrollbar */
-	background-color: transparent;
+  width: 12px; /* width of the entire scrollbar */
+  background-color: transparent;
 }
 
 body::-webkit-scrollbar-track {
-	/* background: transparent; color of the tracking area */
+  /* background: transparent; color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: var(--background);
-	/* color of the scroll thumb */
-	border-radius: 20px; /* roundness of the scroll thumb */
-	border: 3px solid var(--buttonColor); /* creates padding around scroll thumb */
+  background-color: var(--background);
+  /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid var(--buttonColor); /* creates padding around scroll thumb */
 }
 body::-webkit-scrollbar-corner {
-	background-color: transparent;
+  background-color: transparent;
 }
 body {
-	overflow: overlay;
+  overflow: overlay;
 }
 html {
-	font-size: var(--baseFontSize);
-	box-sizing: border-box;
-	scroll-behavior: smooth;
+  font-size: var(--baseFontSize);
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+  box-sizing: inherit;
 }
 .grid {
-	display: grid;
+  display: grid;
 }
 .flex {
-	display: flex;
-	/* flex-direction: column; */
+  display: flex;
+  /* flex-direction: column; */
 }
 body {
-	font-family: var(--bodyFont);
-	font-weight: 400;
-	line-height: 1.65;
-	background: var(--background);
-	color: var(--textColor);
-	transition: background 0.15s ease-in;
+  font-family: var(--bodyFont);
+  font-weight: 400;
+  line-height: 1.65;
+  background: var(--background);
+  color: var(--textColor);
+  transition: background 0.15s ease-in;
 }
 
 nav {
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: flex-end;
-	padding: 1rem 1.5rem;
-	gap: 0.75rem;
-	position: fixed;
-	background: var(--background);
-	border-radius: 0.5rem;
-	transition: all 0.4s ease-in;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  padding: 1rem 1.5rem;
+  gap: 0.75rem;
+  position: fixed;
+  background: var(--background);
+  border-radius: 0.5rem;
+  transition: all 0.4s ease-in;
 }
 nav a {
-	color: var(--textColor);
-	text-decoration: none;
+  color: var(--textColor);
+  text-decoration: none;
 }
 nav a:hover {
-	text-decoration: underline 4px solid var(--buttonColor);
+  text-decoration: underline 4px solid var(--buttonColor);
 }
 .backButton a {
-	color: var(--textColor);
-	font-size: var(--medText);
+  color: var(--textColor);
+  font-size: var(--medText);
 }
 .backButton:hover {
-	cursor: pointer;
-	border-bottom: 4px solid var(--buttonColor);
+  cursor: pointer;
+  border-bottom: 4px solid var(--buttonColor);
 }
 main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .main {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 .logo {
-	height: 1rem;
+  height: 1rem;
 }
 footer {
-	--footerTextColor: var(--lightGrey);
-	color: var(--footerTextColor);
-	background: var(--footerBackground);
-	padding: 2rem var(--containerPadding);
-	text-align: center;
+  --footerTextColor: var(--lightGrey);
+  color: var(--footerTextColor);
+  background: var(--footerBackground);
+  padding: 2rem var(--containerPadding);
+  text-align: center;
 }
 
 footer a {
-	color: var(--footerTextColor);
+  color: var(--footerTextColor);
 }
 
 .settings {
 }
 
 footer p {
-	margin-bottom: 0;
-	max-width: none;
+  margin-bottom: 0;
+  max-width: none;
 }
 
 p {
-	margin-bottom: 1.15rem;
-	max-width: 40em;
+  margin-bottom: 1.15rem;
+  max-width: 40em;
 }
 
 p a,
 blockquote a {
-	color: var(--textColor);
-	text-decoration: none;
-	border-bottom: solid 2px var(--primary);
+  color: var(--textColor);
+  text-decoration: none;
+  border-bottom: solid 2px var(--primary);
 }
 
 h1,
@@ -197,143 +197,144 @@ h2,
 h3,
 h4,
 h5 {
-	margin: 2.75rem 0 1.05rem;
-	font-family: var(--headingFont);
-	font-weight: 400;
-	line-height: 1.15;
+  margin: 2.75rem 0 1.05rem;
+  font-family: var(--headingFont);
+  font-weight: 400;
+  line-height: 1.15;
 }
 h1 {
-	margin-top: 0;
-	font-size: var(--h1);
+  margin-top: 0;
+  font-size: var(--h1);
 }
 
 h2 {
-	font-size: var(--h2);
+  margin: 0;
+  font-size: var(--h2);
 }
 
 h3 {
-	font-size: var(--h3);
+  font-size: var(--h3);
 }
 
 h4 {
-	font-size: var(--h4);
+  font-size: var(--h4);
 }
 
 h5 {
-	font-size: var(--h5);
+  font-size: var(--h5);
 }
 
 small,
 .text_small {
-	font-size: var(--smallText);
+  font-size: var(--smallText);
 }
 
 /* End typescale */
 
 blockquote {
-	margin: 10px;
-	padding: 2em;
-	background: var(--cardBg);
-	box-shadow: var(--level-3);
+  margin: 10px;
+  padding: 2em;
+  background: var(--cardBg);
+  box-shadow: var(--level-3);
 }
 
 label {
-	display: block;
-	font-size: var(--medText);
+  display: block;
+  font-size: var(--medText);
 }
 
 input,
 textarea {
-	padding: 4px 5px;
-	border: var(--line);
-	font-size: var(--baseFontSize);
-	border-radius: var(--borderRadius);
+  padding: 4px 5px;
+  border: var(--line);
+  font-size: var(--baseFontSize);
+  border-radius: var(--borderRadius);
 }
 select {
-	border-radius: var(--borderRadius);
-	/* -webkit-appearance: none; */
-	/* -moz-appearance: none; */
-	/* appearance: none; */
-	font-size: var(--baseFontSize);
-	background-color: var(--selectBackgroundColor);
-	font-weight: bold;
-	color: var(--white);
-	padding: 0.15rem;
+  border-radius: var(--borderRadius);
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+  /* appearance: none; */
+  font-size: var(--baseFontSize);
+  background-color: var(--selectBackgroundColor);
+  font-weight: bold;
+  color: var(--white);
+  padding: 0.15rem;
 }
 textarea {
-	width: 100%;
-	height: 5rem;
+  width: 100%;
+  height: 5rem;
 }
 
 ::placeholder {
-	color: var(--grey);
+  color: var(--grey);
 }
 
 select {
-	/* border: var(--line); */
-	border: transparent;
-	/* outline: 1px solid white; */
+  /* border: var(--line); */
+  border: transparent;
+  /* outline: 1px solid white; */
 }
 
 hr {
-	border-top: var(--line);
+  border-top: var(--line);
 }
 
 button {
-	/* --buttonColor: var(--primary); */
-	appearance: none;
-	color: var(--buttonTextColor);
-	background-color: var(--buttonColor);
-	font-size: var(--baseFontSize);
-	border: none;
-	border-radius: 10px;
-	padding: 5px 25px;
-	box-shadow: var(--level-1);
-	transition: 0.3s ease-in-out box-shadow;
+  /* --buttonColor: var(--primary); */
+  appearance: none;
+  color: var(--buttonTextColor);
+  background-color: var(--buttonColor);
+  font-size: var(--baseFontSize);
+  border: none;
+  border-radius: 10px;
+  padding: 5px 25px;
+  box-shadow: var(--level-1);
+  transition: 0.3s ease-in-out box-shadow;
 }
 
 button:hover {
-	box-shadow: var(--level-2);
+  box-shadow: var(--level-2);
 }
 
 button[disabled] {
-	opacity: 0.4;
+  opacity: 0.4;
 }
 
 /* .cancel can mean anything */
 button.cancel {
-	--buttonColor: var(--danger);
-	--textColor: white;
+  --buttonColor: var(--danger);
+  --textColor: white;
 }
 
 button.small {
-	font-size: var(--smallText);
+  font-size: var(--smallText);
 }
 
 .layout {
-	/* top padding header height + whatever visual padding we want */
-	padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
+  /* top padding header height + whatever visual padding we want */
+  padding: calc(3rem + var(--headerHeight)) var(--containerPadding);
 }
 
 .grid {
-	--gridCols: 2;
-	display: grid;
-	grid-template-columns: repeat(var(--gridCols), 1fr);
+  --gridCols: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--gridCols), 1fr);
 }
 
 .grid-split {
-	grid-template-columns: 33% 67%;
-	grid-gap: 20px;
+  grid-template-columns: 33% 67%;
+  grid-gap: 20px;
 }
 
 .cols-3 {
-	--gridCols: 3;
+  --gridCols: 3;
 }
 
 .split {
-	display: grid;
-	grid-template-columns: 67% 33%;
-	grid-gap: 20px;
+  display: grid;
+  grid-template-columns: 67% 33%;
+  grid-gap: 20px;
 }
 
 /* .flex {
@@ -343,133 +344,133 @@ button.small {
 } */
 
 .flex-around {
-	--justifyContent: space-around;
+  --justifyContent: space-around;
 }
 
 @media screen and (max-width: 1080px) {
-	nav {
-		flex-direction: column;
-		gap: 0;
-	}
-	main h2 {
-		margin: 1rem 0;
-		padding: 0 8rem;
-		text-align: center;
-	}
+  nav {
+    flex-direction: column;
+    gap: 0;
+  }
+  main h2 {
+    margin: 1rem 0;
+    padding: 0 8rem;
+    text-align: center;
+  }
 }
 @media screen and (max-width: 736px) {
-	nav {
-		flex-direction: column;
-		gap: 0;
-		padding: 3px;
-		outline: 2px var(--chordOutlineColor) solid;
-		background-color: var(--background);
-	}
-	main h2 {
-		margin: 1rem 0;
-		padding: 0;
-		text-align: center;
-	}
+  nav {
+    flex-direction: column;
+    gap: 0;
+    padding: 3px;
+    outline: 2px var(--chordOutlineColor) solid;
+    background-color: var(--background);
+  }
+  main h2 {
+    margin: 1rem 0;
+    padding: 0;
+    text-align: center;
+  }
 }
 @media only screen and (min-width: 500px) {
-	:root {
-		--baseFontSize: 112.5%;
-	}
+  :root {
+    --baseFontSize: 112.5%;
+  }
 }
 
 .fake-logo {
-	font-size: var(--baseFontSize);
-	margin: 0;
+  font-size: var(--baseFontSize);
+  margin: 0;
 }
 
 .card {
-	padding: 2em;
-	background: var(--cardBg);
-	box-shadow: var(--level-5);
-	border-radius: var(--borderRadius);
+  padding: 2em;
+  background: var(--cardBg);
+  box-shadow: var(--level-5);
+  border-radius: var(--borderRadius);
 }
 
 /* First item will never have margin top */
 .card > *:first-child {
-	margin-top: 0;
+  margin-top: 0;
 }
 
 /* Last item will never have margin bottom */
 .card > *:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .dark {
-	--cardBg: var(--darkGrey);
-	--background: var(--black);
-	--textColor: var(--lightGrey);
-	--buttonColor: var(--paleBlue);
-	--buttonTextColor: var(--white);
-	--headerBackground: var(--darkGrey);
-	--footerBackground: var(--darkGrey);
-	--chordTextColor: var(--white);
-	--chordOutlineColor: var(--paleBlue);
-	--cursorOutlineColor: var(--paleBlue);
-	--selectBackgroundColor: var(--background);
-	--chordNameOutlineColor: var(--white);
+  --cardBg: var(--darkGrey);
+  --background: var(--black);
+  --textColor: var(--lightGrey);
+  --buttonColor: var(--paleBlue);
+  --buttonTextColor: var(--white);
+  --headerBackground: var(--darkGrey);
+  --footerBackground: var(--darkGrey);
+  --chordTextColor: var(--white);
+  --chordOutlineColor: var(--paleBlue);
+  --cursorOutlineColor: var(--paleBlue);
+  --selectBackgroundColor: var(--background);
+  --chordNameOutlineColor: var(--white);
 }
 
 .oled {
-	--black: #000;
-	--cardBg: var(--darkGrey);
-	--headerBackground: var(--darkGrey);
-	--footerBackground: var(--darkGrey);
+  --black: #000;
+  --cardBg: var(--darkGrey);
+  --headerBackground: var(--darkGrey);
+  --footerBackground: var(--darkGrey);
 }
 
 .theme {
-	/* Define Colors as colors */
-	--green: #4fc4cf;
-	--red: #ff5470;
-	--yellow: #fbdd74;
-	--black: #181818;
-	--darkBlue: #994ff3;
-	--darkGrey: #222;
-	--grey: #bfbfbf;
-	--lightGrey: #f2f4f6;
-	--white: #fff;
+  /* Define Colors as colors */
+  --green: #4fc4cf;
+  --red: #ff5470;
+  --yellow: #fbdd74;
+  --black: #181818;
+  --darkBlue: #994ff3;
+  --darkGrey: #222;
+  --grey: #bfbfbf;
+  --lightGrey: #f2f4f6;
+  --white: #fff;
 
-	/* Define Colors intentions */
-	--primary: var(--green);
-	--danger: var(--red);
-	--background: var(--lightGrey);
-	--textColor: var(--black);
-	--buttonTextColor: var(--black);
-	--lineColor: var(--grey);
-	--cardBg: var(--white);
-	--headerBackground: var(--black);
-	--footerBackground: var(--black);
+  /* Define Colors intentions */
+  --primary: var(--green);
+  --danger: var(--red);
+  --background: var(--lightGrey);
+  --textColor: var(--black);
+  --buttonTextColor: var(--black);
+  --lineColor: var(--grey);
+  --cardBg: var(--white);
+  --headerBackground: var(--black);
+  --footerBackground: var(--black);
 
-	/* Styles */
-	--line: dashed 5px var(--yellow);
+  /* Styles */
+  --line: dashed 5px var(--yellow);
 
-	/* Type */
-	--headingFont: 'GrandmasterClash';
-	--bodyFont: 'Work Sans', sans-serif;
-	--baseFontSize: 110%;
-	--h1: 3.052em;
-	--h2: 2.441em;
-	--h3: 1.953em;
-	--h4: 1.563em;
-	--h5: 1.25em;
-	--h6: 1.15em;
-	--smallText: 0.8em;
+  /* Type */
+  --headingFont: "GrandmasterClash";
+  --bodyFont: "Work Sans", sans-serif;
+  --baseFontSize: 110%;
+  --h1: 3.052em;
+  --h2: 2.441em;
+  --h3: 1.953em;
+  --h4: 1.563em;
+  --h5: 1.25em;
+  --h6: 1.15em;
+  --smallText: 0.8em;
 
-	/* Elevation */
-	--level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	--level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-		0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	--level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-		0 4px 6px -2px rgba(0, 0, 0, 0.05);
-	--level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-		0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* Elevation */
+  --level-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --level-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --level-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --level-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 
-	/* Positioning */
-	--containerPadding: 2.5%;
-	--headerHeight: 4rem;
-	--borderRadius: 25px;
+  /* Positioning */
+  --containerPadding: 2.5%;
+  --headerHeight: 4rem;
+  --borderRadius: 25px;
 }
