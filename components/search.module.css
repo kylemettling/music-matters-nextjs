@@ -1,10 +1,16 @@
 .main {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding-top: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding-top: 15px;
 }
 .main.flex select {
-  outline: 1px solid white;
+	outline: 1px solid white;
+}
+
+@media screen and (max-width: 730px) {
+	.main {
+		padding-top: 60px;
+	}
 }

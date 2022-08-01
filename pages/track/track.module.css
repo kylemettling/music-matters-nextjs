@@ -1,34 +1,36 @@
 .track {
 	display: flex;
 	flex-direction: column;
-	align-content: center;
-	justify-content: center;
-	padding-top: 0.75rem;
+	/* align-content: space-between; */
+	/* justify-content: center; */
+	/* justify-self: center; */
+	padding-top: 15px;
+	/* margin: 0 4%; */
 }
 .chordbookContainer {
-	padding-bottom: 10em;
+	/* padding-bottom: 10em; */
 	flex-direction: column;
 }
 .detailCard {
 	display: flex;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
-	grid-gap: 1.5rem;
-	padding: 0 1.75rem;
+	/* align-content: space-between; */
+	grid-gap: 15px;
+	/* padding: 0 1.75rem; */
+	/* margin: 0 auto; */
 }
-
 .details,
 .artistImageCon {
 	display: flex;
 	flex-direction: column;
-	justify-self: center;
-	align-items: flex-end;
-	padding: 0 auto;
+	/* align-items: flex-end;  */
 }
 .details {
 	/* padding: 0; */
-	margin: 0;
-	/* justify-content: space-around; */
+	/* margin: 0; */
+	align-items: flex-end;
+	justify-items: space-between;
 }
 .trackTitle {
 	overflow: hidden;
@@ -61,6 +63,16 @@
 }
 .artistImage,
 .trackCover {
+	width: 100%;
+	height: 100%;
 	/* padding: 2rem; */
 	border-radius: var(--borderRadius);
 }
+/* .trackCover P{} */
+/* @media screen and (max-width: 1300px) {
+	.trackCover {
+		width: 100%;
+		height: 100%;
+		border-radius: var(--borderRadius);
+	}
+} */

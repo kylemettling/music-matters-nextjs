@@ -1,117 +1,135 @@
-.results {
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(min-content, max-content);
-  justify-content: center;
-  justify-items: center;
-  padding: 15px 0;
-}
+.results,
 .profileResults {
-  grid-template-columns: repeat(3, 1fr);
-  margin: 0 5%;
-  grid-gap: 2.5%;
-  padding: 0;
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: minmax(min-content, max-content);
+	justify-content: space-evenly;
+	/* justify-items: center; */
+
+	margin: 0 auto;
+	max-width: 1000px;
+	padding: 0;
 }
+/* .profileResults {
+	grid-template-columns: repeat(3, 1fr);
+	justify-content: center;
+	max-width: 1000px;
+	margin: 0 auto;
+	grid-gap: 2.5%;
+	padding: 0;
+} */
 .result {
-  display: flex;
-  background: var(--cardBg);
-  box-shadow: var(--level-5);
-  transition: transform 0.15s ease-in;
-  transition-timing-function: cubic-bezier(1, -0.01, 0.85, 2.43);
+	display: flex;
+	background: var(--cardBg);
+	box-shadow: var(--level-5);
+	align-items: center;
+	margin: 10px;
+	padding: 10px;
+	transition: transform 0.15s ease-in;
+	transition-timing-function: cubic-bezier(1, -0.01, 0.85, 2.43);
 }
 .result:hover {
-  transform: scale(1.05);
+	transform: scale(1.05);
 }
 .result a {
-  text-decoration: none;
-  color: var(--textColor);
+	text-decoration: none;
+	color: var(--textColor);
 }
 .releaseTime {
-  justify-content: flex-end;
-  gap: 2.5rem;
+	justify-content: flex-end;
+	gap: 2.5rem;
 }
 .resultName {
-  flex-direction: column;
-  text-align: center;
+	flex-direction: column;
+	text-align: center;
 }
 .resultDetails {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 30px;
-  text-align: right;
-  gap: 25px;
-  color: var(--textColor);
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	/* margin: 10px; */
+	text-align: right;
+	gap: 15px;
+	color: var(--textColor);
 }
 .imageCon {
-  margin: 30px;
-  height: 150px;
-  width: 150px;
+	margin: 30px;
+	height: 150px;
+	width: 150px;
 }
 .albumImage {
-  border-radius: var(--borderRadius);
+	border-radius: var(--borderRadius);
 }
 .result:hover,
 .artist:hover,
 .title:hover,
-.albumImage:hover {
-  --blurAmount: 3px;
-  box-shadow: var(--level-2);
-  outline: 1px var(--chordOutlineColor) solid;
+.albumImage:hover
+/* , */
+/* .titleCon:hover  */ {
+	--blurAmount: 3px;
+	box-shadow: var(--level-2);
+	outline: 1px var(--chordOutlineColor) solid;
 }
 
 .albumImage:hover {
-  border-radius: var(--borderRadius);
+	border-radius: var(--borderRadius);
 }
 .title:hover,
 .artist:hover,
 .albumImage:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 .releaseTime {
-  cursor: default;
+	cursor: default;
 }
 .title {
-  font-size: var(--medText);
+	font-size: var(--medText);
 }
 .artist {
-  font-size: var(--smallText);
+	font-size: var(--smallText);
 }
 .titleCon {
-  overflow: hidden;
-  width: 25ch;
-  white-space: nowrap;
-  align-self: flex-end;
+	overflow: hidden;
+	width: 20ch;
+	white-space: nowrap;
+	/* align-self: flex-end; */
 }
 @media screen and (max-width: 1920px) {
-  .profileResults,
-  .results {
-  }
+	.profileResults,
+	.results {
+	}
 
-  .titleCon {
-    width: 18ch;
-  }
+	.titleCon {
+		width: 18ch;
+	}
 }
-/* @media screen and (max-width: 1080px) {
-  .results {
-    grid-template-columns: repeat(1, 1fr); 
-  }
-  .profileResults {
-    grid-template-columns: repeat(1, 1fr);
-    margin: 25px;
-  }
-  .titleCon { 
-    width: 14ch;
-  }
-} */
+@media screen and (max-width: 1300px) {
+	.results,
+	.profileResults {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.titleCon {
+		width: 14ch;
+	}
+}
+@media screen and (max-width: 1080px) {
+	.results,
+	.profileResults {
+		grid-template-columns: 1fr;
+		margin: 0 200px;
+		/* padding: 0; */
+	}
+	.result {
+		width: 480px;
+		justify-self: center;
+	}
+	.titleCon {
+		width: 14ch;
+	}
+}
 @media screen and (max-width: 736px) {
-  .results {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .profileResults {
-    grid-template-columns: repeat(1, 1fr);
-    justify-items: center;
-    margin: 15px;
-  }
+	.results {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 @media only screen and (min-width: 500px) {
 }

@@ -1,9 +1,11 @@
 .chordbook {
 	display: flex;
 	text-align: center;
+	justify-content: center;
 	/* margin-bottom: 0.25em; */
 	/* max-height: 275px; */
-	padding: 0 1em;
+	margin: 0;
+	padding: 0 4%;
 	margin-bottom: 0.5rem;
 	/* padding-top: 2.5em; */
 	/* justify-content: ; */
@@ -17,7 +19,7 @@
 .chordbookHeader {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	align-self: flex-start;
 	flex: 0 0 27em;
 }
@@ -26,13 +28,6 @@
 	/* color: var(--selectTextColor); */
 	/* background: var(--selectBackgroundColor); */
 	border: 2px var(--chordOutlineColor) solid;
-}
-/* button,
-select {
-  cursor: pointer;
-} */
-.chordbookHeader {
-	background-color: var(--darkGrey);
 }
 .chordbookHeader button {
 	color: var(--white);
@@ -159,7 +154,7 @@ select {
 	/* justify-content: center;
 	align-content: center;
 	text-align: center; */
-	height: 2.5rem;
+	/* height: 2.5rem; */
 }
 .bookTitle:focus,
 .innerTitleInput:focus {
@@ -205,4 +200,34 @@ select {
 .keyModeReset:focus,
 .keyModeSubmit:focus {
 	outline: 2px var(--white) solid;
+}
+@media screen and (max-width: 1920px) {
+	.chordbookContainer {
+		width: 1000px;
+		margin: 0 auto;
+	}
+	.chordbook {
+		/* width: 100%; */
+		margin: 0;
+		padding: 0;
+		/* width: 1000px; */
+		/* margin: 0; */
+		/* align-items: flex-start; */
+		justify-content: center;
+	}
+	.chordbookHeader {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		justify-content: flex-start;
+		align-self: flex-start;
+		flex: 1 1 27;
+	}
+}
+
+@media screen and (max-width: 1750px) {
+	/* .chordbook {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	} */
 }

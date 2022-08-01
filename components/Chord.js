@@ -88,7 +88,7 @@ function Chord({
 		<Draggable draggableId={id.toString()} index={position} key={id}>
 			{(provided) => (
 				<div
-					className={`${styles.chordDetail} droppableId-${_droppableId} flex card`}
+					className={`${styles.chordDetail} droppableId-${_droppableId} card`}
 					{...provided.draggableProps}
 					{...provided.dragHandleProps}
 					ref={provided.innerRef}

@@ -267,31 +267,60 @@ export function Chordbook({
 			// const currentBookIndex = chordbooks.findIndex((book) =>
 			// 	book.id === parseInt(source.droppableId) ? book : null
 			// )
+			console.log('BOOOKS', chordbooks)
 			const currentChords = chordbooks[destination.droppableId].chords.slice()
 			console.log(
 				'🚀 ~ file: Chordbook.js ~ line 272 ~ onDragEnd ~ currentChords',
 				currentChords
 			)
-			const reorderedChordbook = currentChords.map((chord) => {
-				if (chord.id === parseInt(result.draggableId)) {
-					chord.position = destination.index
-					// console.log('condition 1', chord)
-					return chord
-				} else if (affectedRange.includes(chord.position)) {
-					if (directionOfDrag === 'GREATER') {
-						chord.position = chord.position - 1
-						console.log('condition 2.1', chord)
+			const currentBookIndex = chordbooks.findIndex((book) =>
+				book.bookId === parseInt(source.droppableId) ? book : null
+			)
+			console.log(
+				'🚀 ~ file: Chordbook.js ~ line 278 ~ onDragEnd ~ currentBookIndex',
+				currentBookIndex
+			)
+			const currentBook = chordbooks[currentBookIndex]
+			const reorderedChordbook = chordbooks[currentBookIndex].chords.map(
+				(chord) => {
+					if (chord.id === parseInt(result.draggableId)) {
+						chord.position = destination.index
+						// console.log('condition 1', chord)
 						return chord
-					} else if (directionOfDrag === 'LESS') {
-						chord.position = chord.position + 1
-						console.log('condition 2.2', chord)
+					} else if (affectedRange.includes(chord.position)) {
+						if (directionOfDrag === 'GREATER') {
+							chord.position = chord.position - 1
+							// console.log('condition 2.1', chord)
+							return chord
+						} else if (directionOfDrag === 'LESS') {
+							chord.position = chord.position + 1
+							// console.log('condition 2.2', chord)
+							return chord
+						}
+					} else {
+						// console.log('condition 3', chord)
 						return chord
 					}
-				} else {
-					// console.log('condition 3', chord)
-					return chord
 				}
-			})
+			)
+			// const reorderedChordbook = currentChords.map((chord) => {
+			// 	if (chord.id === parseInt(result.draggableId)) {
+			// 		chord.position = destination.index
+			// 		return chord
+			// 	} else if (affectedRange.includes(chord.position)) {
+			// 		if (directionOfDrag === 'GREATER') {
+			// 			chord.position = chord.position - 1
+			// 			console.log('condition 2.1', chord)
+			// 			return chord
+			// 		} else if (directionOfDrag === 'LESS') {
+			// 			chord.position = chord.position + 1
+			// 			console.log('condition 2.2', chord)
+			// 			return chord
+			// 		}
+			// 	} else {
+			// 		return chord
+			// 	}
+			// })
 			console.log(reorderedChordbook)
 			// currentBook.chords = reorderedChordbook
 			// chordbooks[destination.droppableId] = currentBook

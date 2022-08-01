@@ -18,3 +18,8 @@
 	/* max-height: 8.88rem; */
 	/* max-width: 6, 9rem; */
 }
+@media screen and (max-width: 1920px) {
+	/* .chordImage {
+		width: 100px;
+	} */
+}

@@ -217,6 +217,7 @@ export default function TrackDetail({ session }) {
 						className={styles.artistImageCon}
 						style={{
 							display: 'flex',
+							// width: artistCover.height,
 						}}
 					>
 						{artistCover && (

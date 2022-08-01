@@ -24,13 +24,14 @@
 	max-width: calc(100% - 1.5rem);
 }
 .chordDetail {
+	display: flex;
 	--chordTextColor: var(--lightGrey);
 	color: var(--textColor);
 	justify-content: center;
 	align-items: center;
-	text-align: center;
-	justify-self: center;
-	align-content: center;
+	/* text-align: center; */
+	/* justify-self: center; */
+	/* align-content: center; */
 	border: 3px var(--chordOutlineColor) solid;
 	border-radius: var(--borderRadius);
 	height: 275px;
@@ -117,3 +118,8 @@
 	cursor: crosshair;
 	opacity: 1;
 } */
+@media screen and (max-width: 1920px) {
+	.chordDetail {
+		width: 170px;
+	}
+}
