@@ -24,15 +24,6 @@ export default function Home({ user, session }) {
     }
   }, [session]);
 
-  async function signIn() {
-    const { error, data } = await supabase.auth.signIn({
-      provider: "google",
-    });
-    console.log("data inside index signIn()", data);
-    if (error) {
-      console.log(error);
-    }
-  }
   return (
     <div>
       <Head>
