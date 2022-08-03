@@ -346,61 +346,63 @@ export function Chordbook({
   if (error) return <pre>{JSON.stringify(error, null, 4)}</pre>;
   return (
     <DragDropContext onDragStart={onDragStart} onDragEnd={onDragEnd}>
-      {chordbooks &&
-        orderBy(chordbooks, "id").map((book, idx) => {
-          return (
-            <div key={idx} className={styles.chordbook}>
-              <ChordbookHeader
-                handleScaleChange={handleScaleChange}
-                handleResetScale={handleResetScale}
-                handleCreateBook={createBook}
-                handleUpdateBook={updateChordbook}
-                handleDeleteBook={deleteBook}
-                includeControls={
-                  chordbooks.length === idx + 1 || book.isErasable
-                    ? true
-                    : false
-                }
-                isErasable={book.isErasable}
-                bookId={book.bookId}
-                songKey={songKey}
-                songMode={songKeyCenterQuality}
-                name={book.name}
-                type={book.type}
-              />
-              <Droppable
-                droppableId={book.bookId.toString()}
-                direction="horizontal"
-              >
-                {(provided, snapshot) => (
-                  <div
-                    ref={provided.innerRef}
-                    {...provided.droppableProps}
-                    className={styles.chords}
-                  >
-                    {orderBy(book.chords, "position").map((chord) => (
-                      <Chord
-                        key={chord.id}
-                        _droppableId={book.bookId.toString()}
-                        root={chord.root}
-                        type={chord.type}
-                        id={chord.id}
-                        position={chord.position}
-                        degree={chord.degree}
-                        updateChord={updateChord}
-                        bookType={book.type}
-                        bookId={book.bookId}
-                        handleCopy={copyChord}
-                        handleDelete={deleteChord}
-                      />
-                    ))}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </Droppable>
-            </div>
-          );
-        })}
+      <div className={`${styles.chordbooks} flex`}>
+        {chordbooks &&
+          orderBy(chordbooks, "id").map((book, idx) => {
+            return (
+              <>
+                <ChordbookHeader
+                  handleScaleChange={handleScaleChange}
+                  handleResetScale={handleResetScale}
+                  handleCreateBook={createBook}
+                  handleUpdateBook={updateChordbook}
+                  handleDeleteBook={deleteBook}
+                  includeControls={
+                    chordbooks.length === idx + 1 || book.isErasable
+                      ? true
+                      : false
+                  }
+                  isErasable={book.isErasable}
+                  bookId={book.bookId}
+                  songKey={songKey}
+                  songMode={songKeyCenterQuality}
+                  name={book.name}
+                  type={book.type}
+                />
+                <Droppable
+                  droppableId={book.bookId.toString()}
+                  direction="horizontal"
+                >
+                  {(provided, snapshot) => (
+                    <div
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                      className={styles.chords}
+                    >
+                      {orderBy(book.chords, "position").map((chord) => (
+                        <Chord
+                          key={chord.id}
+                          _droppableId={book.bookId.toString()}
+                          root={chord.root}
+                          type={chord.type}
+                          id={chord.id}
+                          position={chord.position}
+                          degree={chord.degree}
+                          updateChord={updateChord}
+                          bookType={book.type}
+                          bookId={book.bookId}
+                          handleCopy={copyChord}
+                          handleDelete={deleteChord}
+                        />
+                      ))}
+                      {provided.placeholder}
+                    </div>
+                  )}
+                </Droppable>
+              </>
+            );
+          })}
+      </div>
     </DragDropContext>
   );
 }

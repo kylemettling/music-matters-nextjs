@@ -130,9 +130,11 @@ export default function TrackDetail({ session }) {
         <div className={`${styles.detailCard}`}>
           <div
             className={styles.details}
-            style={{
-              width: artistCover?.width,
-            }}
+            style={
+              {
+                // width: artistCover?.width,
+              }
+            }
           >
             <h1 tabIndex={0} className={styles.trackTitle}>
               {songTitle}
@@ -189,17 +191,15 @@ export default function TrackDetail({ session }) {
             )}
           </div>
         </div>
-        <div className={`${styles.chordbookContainer} flex`}>
-          <Chordbook
-            key={id}
-            trackId={id}
-            session={session}
-            loadedBooks={
-              JSON.parse(JSON.stringify(trackData?.chordbook?.data || "")) ||
-              loadedChordbooks
-            }
-          />
-        </div>
+        <Chordbook
+          key={id}
+          trackId={id}
+          session={session}
+          loadedBooks={
+            JSON.parse(JSON.stringify(trackData?.chordbook?.data || "")) ||
+            loadedChordbooks
+          }
+        />
       </div>
     </>
   );
