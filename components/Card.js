@@ -61,12 +61,12 @@ export const Card = ({ id, header, body, media }) => {
       </span>
       <div className={styles.media}>
         {hasWindow && media.endsWith("mp4") ? (
-          <div className={`${styles.video} `}>
+          <div className={`${styles.video}`}>
             <ReactPlayer
               className="react-player"
               url={`/img/cards/${media}`}
               width="100%"
-              // height={360}
+              style={{ maxHeight: "150px" }}
               muted={true}
               playing={true}
               playbackRate={0.7}
@@ -74,7 +74,7 @@ export const Card = ({ id, header, body, media }) => {
             />
           </div>
         ) : (
-          <div className={`${styles.image} `}>
+          <div className={`${styles.image}`}>
             <Image
               src={`/img/cards/${media}`}
               alt={`${header}`}
