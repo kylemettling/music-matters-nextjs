@@ -1,13 +1,13 @@
 .results,
 .profileResults {
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(min-content, max-content);
-  justify-content: space-evenly;
-  /* justify-items: center; */
+	grid-template-columns: repeat(3, 1fr);
+	grid-auto-rows: minmax(min-content, max-content);
+	justify-content: space-evenly;
+	/* justify-items: center; */
 
-  margin: 0 15%;
-  /* max-width: 1000px; */
-  /* padding: 0; */
+	margin: 0 auto;
+	/* max-width: 1000px; */
+	/* padding: 0; */
 }
 /* .profileResults {
 	grid-template-columns: repeat(3, 1fr);
@@ -18,45 +18,48 @@
 	padding: 0;
 } */
 .result {
-  display: flex;
-  background: var(--cardBg);
-  box-shadow: var(--level-5);
-  justify-content: space-around;
-  margin: 15px;
-  padding: 25px;
-  transition: transform 0.15s ease-in;
-  transition-timing-function: cubic-bezier(1, -0.01, 0.85, 2.43);
+	display: flex;
+	background: var(--cardBg);
+	box-shadow: var(--level-5);
+	justify-content: space-around;
+	margin: 25px;
+	padding: 25px;
+	transition: transform 0.15s ease-in;
+	transition-timing-function: cubic-bezier(1, -0.01, 0.85, 2.43);
 }
 .result:hover {
-  transform: scale(1.05);
+	transform: scale(1.05);
 }
 .result a {
-  text-decoration: none;
-  color: var(--textColor);
-}
-.releaseTime {
-  /* align-content: space-around; */
-  /* justify-self: center; */
-  /* justify-content: flex-end; */
-  /* gap: 2.5rem; */
+	text-decoration: none;
+	color: var(--textColor);
 }
 .resultDetails {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  text-align: right;
-  /* gap: 15px; */
-  color: var(--textColor);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	text-align: right;
+	/* gap: 15px; */
+	color: var(--textColor);
+}
+.releaseTime {
+	display: flex;
+	text-align: right;
+	/* justify-content: space-between; */
+	/* align-content: space-around; */
+	/* justify-self: center; */
+	justify-content: flex-end;
+	gap: 60px;
 }
 .imageCon {
-  /* display: flex; */
-  /* justify-self: center; */
-  /* margin: 30px; */
-  height: 200px;
-  width: 200px;
+	/* display: flex; */
+	/* justify-self: center; */
+	/* margin: 30px; */
+	height: 200px;
+	width: 200px;
 }
 .albumImage {
-  border-radius: var(--borderRadius);
+	border-radius: var(--borderRadius);
 }
 .result:hover,
 .artist:hover,
@@ -64,33 +67,33 @@
 .albumImage:hover
 /* , */
 /* .titleCon:hover  */ {
-  --blurAmount: 3px;
-  box-shadow: var(--level-2);
-  outline: 1px var(--chordOutlineColor) solid;
+	--blurAmount: 3px;
+	box-shadow: var(--level-2);
+	outline: 1px var(--chordOutlineColor) solid;
 }
 
 .albumImage:hover {
-  border-radius: var(--borderRadius);
+	border-radius: var(--borderRadius);
 }
 .title:hover,
 .artist:hover,
 .albumImage:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 .releaseTime {
-  cursor: default;
+	cursor: default;
 }
 .title {
-  font-size: var(--medText);
+	font-size: var(--medText);
 }
 .artist {
-  font-size: var(--smallText);
+	font-size: var(--smallText);
 }
 .titleCon {
-  overflow: hidden;
-  width: 20ch;
-  white-space: nowrap;
-  /* align-self: flex-end; */
+	overflow: hidden;
+	width: 20ch;
+	white-space: nowrap;
+	/* align-self: flex-end; */
 }
 /* @media screen and (max-width: 1920px) {
   .profileResults,
@@ -102,33 +105,33 @@
   }
 } */
 @media screen and (max-width: 1300px) {
-  .results,
-  .profileResults {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .titleCon {
-    width: 14ch;
-  }
+	.results,
+	.profileResults {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.titleCon {
+		width: 14ch;
+	}
 }
 @media screen and (max-width: 1080px) {
-  .results,
-  .profileResults {
-    grid-template-columns: 1fr;
-    margin: 0 200px;
-    /* padding: 0; */
-  }
-  .result {
-    width: 480px;
-    justify-self: center;
-  }
-  .titleCon {
-    width: 14ch;
-  }
+	.results,
+	.profileResults {
+		grid-template-columns: 1fr;
+		margin: 0 200px;
+		/* padding: 0; */
+	}
+	.result {
+		width: 480px;
+		justify-self: center;
+	}
+	.titleCon {
+		width: 14ch;
+	}
 }
 @media screen and (max-width: 736px) {
-  .results {
-    grid-template-columns: repeat(1, 1fr);
-  }
+	.results {
+		grid-template-columns: repeat(1, 1fr);
+	}
 }
 @media only screen and (min-width: 500px) {
 }
