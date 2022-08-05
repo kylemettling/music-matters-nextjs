@@ -65,7 +65,7 @@ export const Card = ({ id, header, body, media }) => {
             <ReactPlayer
               className="react-player"
               url={`/img/cards/${media}`}
-              width="100%"
+              // width="100%"
               style={{ maxHeight: "150px" }}
               muted={true}
               playing={true}
