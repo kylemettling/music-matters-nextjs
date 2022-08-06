@@ -1,27 +1,11 @@
 .chordbooks {
-	/* margin: 0 auto; */
-	/* justify-content: space-evenly; */
-	/* grid-auto-flow: dense; */
-	/* justify-items: center; */
-	/* justify-self: center; */
-	/* padding: 0; */
 	margin: 0 auto;
-	/* align-self: center; */
 }
 .chordbook {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(355px, auto) 1190px);
-	/* grid-template-rows: minmax(auto, 275px); */
-	/* align-items: center; */
-	/* display: grid; */
-	/* grid-template-columns: repeat(auto-fit, minmax(275px, 7fr)); */
-	/* grid-template-columns: 420px auto; */
-	/* align-self: center; */
-	/* text-align: center; */
+	grid-template-columns: repeat(auto-fill, minmax(355px, auto) 1350px);
 	gap: 15px;
-	/* padding: 0; */
 	margin-bottom: 7px;
-	/* margin: 0 auto; */
 }
 .chordbook select {
 	border: 2px var(--chordOutlineColor) solid;
@@ -33,18 +17,11 @@
 }
 .chordbookHeader {
 	display: grid;
-	/* width: 450px; */
-	/* flex-direction: column; */
-	/* justify-content: space-between; */
-	/* justify-items: center; */
-	/* grid-template-columns: repeat(auto-fill, auto);  */
 	align-items: flex-start;
-	/* align-self: flex-start; */
 	background: var(--darkGrey);
 	border-right: 8px var(--chordOutlineColor) solid;
 	border-left: 8px var(--chordOutlineColor) solid;
 	color: var(--white);
-	/* gap: 15px; */
 }
 .chordbookHeader:first-child {
 	height: 275px;
@@ -61,12 +38,8 @@
 	grid-auto-flow: row;
 	grid-template-columns: repeat(auto-fit, minmax(170px, 7fr));
 	justify-items: center;
-	/* grid-template-rows: 275px; */
 	text-align: center;
 }
-/* .chord {
-	justify-self: center;
-} */
 .blur {
 	animation: blurIn 0.05s forwards;
 	box-shadow: var(--level-5);

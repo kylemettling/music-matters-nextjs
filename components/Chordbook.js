@@ -26,6 +26,7 @@ export function Chordbook({
 	const {
 		chordbooks,
 		createStartingBook,
+		reorderChordbook,
 		updateChordbook,
 		updateChord,
 		deleteBook,
@@ -135,7 +136,7 @@ export function Chordbook({
 		)
 		for (let i = 0; i < elements.length; i++) {
 			if (i !== source.index - 1) {
-				elements[i].classList.add('blur')
+				elements[i].classList.add(styles.blur)
 			}
 		}
 	}, [])
@@ -186,14 +187,14 @@ export function Chordbook({
 		// console.log('drag', result)
 		const { destination, source, draggableId } = result
 
-		const chordbooksCopy = chordbooks.slice()
-		const updatedChords = []
+		// const chordbooksCopy = chordbooks.slice()
+		// const updatedChords = []
 		// adding blur animation to non-dragging chords
 		const elements = document.querySelectorAll(
-			`.chordDetail.droppableId-${source.droppableId}`
+			`.droppableId-${source.droppableId}`
 		)
 		for (let i = 0; i < elements.length; i++) {
-			elements[i].classList.remove('blur')
+			elements[i].classList.remove(styles.blur)
 		}
 		// make sure change occurs
 		if (!destination || !source) {
@@ -211,12 +212,11 @@ export function Chordbook({
 		// checking if the source droppableId is the same as the destination droppableId
 		if (destination.droppableId === source.droppableId) {
 			// check the direction (> or <)
-			const directionOfDrag =
-				destination.index > source.index ? 'GREATER' : 'LESS'
+			const directionOfDrag = destination.index > source.index ? -1 : 1
 
 			// find the affected range
 			let affectedRange
-			if (directionOfDrag === 'GREATER') {
+			if (directionOfDrag === 1) {
 				affectedRange = range(source.index, destination.index + 1)
 			} else {
 				affectedRange = range(destination.index, source.index)
@@ -225,55 +225,82 @@ export function Chordbook({
 			// const currentBookIndex = chordbooks.findIndex((book) =>
 			// 	book.id === parseInt(source.droppableId) ? book : null
 			// )
+
+			// const currentBookIndex = chordbooks.findIndex((book) =>
+			// 	book.bookId === parseInt(source.droppableId) ? book : null
+			// )
+			// const currentBook = chordbooks[currentBookIndex].chords
+			// // const chords = []
+			// const reorderedChordbook = currentBook.map((chord, index) => {
+			// 	// currentBook.chords.forEach((chord) => {
+			// 	if (chord.id === parseInt(result.draggableId)) {
+			// 		const copy = { ...chord }
+			// 		copy.position = destination.index
+			// 		console.log('copy', copy)
+			// 		currentBook.splice(index, 1, copy)
+			// 		console.log(currentBook)
+			// 		// const copy = { ...chord }
+			// 		// copy.position = destination.index
+			// 		// console.log('condition 1', copy)
+
+			// 		return copy
+			// 	} else if (affectedRange.includes(chord.position)) {
+			// 		if (directionOfDrag === 'GREATER') {
+			// 			const copy = { ...chord }
+			// 			copy.position = copy.position - 1
+			// 			// updatedChords.push(copy)
+			// 			// chord.position = chord.position - 1
+			// 			console.log('condition 2.1', copy)
+			// 			// chords.push(chord)
+			// 			return copy
+			// 		} else if (directionOfDrag === 'LESS') {
+			// 			const copy = { ...chord }
+			// 			copy.position = copy.position + 1
+			// 			// chord.position = chord.position + 1
+			// 			console.log('condition 2.2', copy)
+			// 			// updatedChords.push(copy)
+			// 			return copy
+			// 		}
+			// 	} else {
+			// 		// console.log('condition 3', chord)
+			// 		// updatedChords.push(chord)
+			// 		return chord
+			// 	}
+			// 	// return chords
+			// })
+			// console.log(
+			// const copy = chordbooks.slice()
 			const currentBookIndex = chordbooks.findIndex((book) =>
 				book.bookId === parseInt(source.droppableId) ? book : null
 			)
-			const currentBook = chordbooksCopy[currentBookIndex].chords.slice()
-			// const chords = []
-			const reorderedChordbook = currentBook
-				.map((chord) => {
-					// currentBook.chords.forEach((chord) => {
-					if (chord.id === parseInt(result.draggableId)) {
-						const copy = { ...chord }
-						copy.position = destination.index
-						console.log('condition 1', copy)
-						updatedChords.push(copy)
-						return { ...copy }
-					} else if (affectedRange.includes(chord.position)) {
-						if (directionOfDrag === 'GREATER') {
-							const copy = { ...chord }
-							copy.position = copy.position - 1
-							updatedChords.push(copy)
-							// chord.position = chord.position - 1
-							console.log('condition 2.1', copy)
-							// chords.push(chord)
-							return { ...copy }
-						} else if (directionOfDrag === 'LESS') {
-							const copy = { ...chord }
-							copy.position = copy.position + 1
-							// chord.position = chord.position + 1
-							console.log('condition 2.2', copy)
-							updatedChords.push(copy)
-							return { ...copy }
-						}
-					} else {
-						// console.log('condition 3', chord)
-						updatedChords.push(chord)
-						return chord
-					}
-					// return chords
-				})
-				.slice()
+			if (source.droppableId !== 0) {
+				const newChordbook = reorderChordbook(
+					chordbooks[currentBookIndex].chords,
+					affectedRange,
+					directionOfDrag,
+					result
+				)
+				chordbooks[parseInt(source.droppableId)].chords =
+					newChordbook[source.droppableId]
+				// chordbooks[currentBookIndex].chords = newChordbook
+				console.log('reordered', chordbooks)
+			}
+			// )
+			// chordbooks[parseInt(source.droppableId)].chords =
+			// 	newChordbook[source.droppableId]
+			// const new
 			// console.log('reorderedChordbook', reorderedChordbook)
-			currentBook = [...reorderedChordbook]
-			Object.assign(chordbooksCopy[currentBookIndex].chords, {
-				...updatedChords,
-			})
+			// currentBook = [...reorderedChordbook]
+			// console.log(currentBook)
+			// console.log('hmm', chordbooks)
+			// Object.assign(chordbooksCopy[currentBookIndex].chords, {
+			// 	...updatedChords,
+			// })
 			// chordbooksCopy[currentBookIndex].chords = [...currentBook]
 			// console.log('current', chordbooksCopy, chords)
 			// console.log(newChordbooks)
 			// const newIds = sanitizeIds(chordbooksCopy)
-			console.log('chordbooksCopy', chordbooksCopy)
+			// console.log('chordbooksCopy', chordbooksCopy)
 			// const sanitized = sanitizeIds(books)
 			// setChordbooks(newIds)
 			// console.log(newIds)
@@ -290,17 +317,17 @@ export function Chordbook({
 				copyChord = true
 			}
 			const result = move(
-				chordbooksCopy[parseInt(source.droppableId)].chords,
-				chordbooksCopy[parseInt(destination.droppableId)].chords,
+				chordbooks[parseInt(source.droppableId)].chords,
+				chordbooks[parseInt(destination.droppableId)].chords,
 				source,
 				destination,
 				copyChord
 			)
-			chordbooksCopy[parseInt(source.droppableId)].chords =
+			chordbooks[parseInt(source.droppableId)].chords =
 				result[source.droppableId]
-			chordbooksCopy[parseInt(destination.droppableId)].chords =
+			chordbooks[parseInt(destination.droppableId)].chords =
 				result[destination.droppableId]
-			chordbooksCopy.filter((book) => book.length)
+			chordbooks.filter((book) => book.length)
 			// const newBooks =
 			//   updateDbChordbook({
 			//     variables: { chordbook: chordbooks, userId: user?.id, songId: trackId },
@@ -310,21 +337,23 @@ export function Chordbook({
 
 			// setChordbooks(newIds)
 		}
-		console.log('chordbooksCopy', chordbooksCopy)
-		const newIds = sanitizeIds(chordbooksCopy)
-		// console.log('update after shuffle', newIds)
+		// console.log('chordbooksCopy', chordbooksCopy)
+		// const copy = [...chordbooks]
+		const newIds = sanitizeIds(chordbooks)
 		// setChordbooks(newIds)
-		if (session) {
-			updateDbChordbook({
-				variables: {
-					songId: trackId,
-					userId: session?.user?.id,
-					chordbooks: newIds,
-				},
-			})
-		} else if (!session) {
-			storeChordbooks(newIds, trackId)
-		}
+		// console.log('ok', newIds)
+		setChordbooks(newIds)
+		// if (session) {
+		// 	updateDbChordbook({
+		// 		variables: {
+		// 			songId: trackId,
+		// 			userId: session?.user?.id,
+		// 			chordbooks: newIds,
+		// 		},
+		// 	})
+		// } else if (!session) {
+		// 	storeChordbooks(newIds, trackId)
+		// }
 	})
 	async function updateChordbookData() {}
 	useEffect(() => {
