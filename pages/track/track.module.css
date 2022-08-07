@@ -44,6 +44,13 @@
   /* align-items: flex-end; */
   white-space: nowrap;
 }
+.trackAlbum,
+.trackArtist {
+  overflow: hidden;
+  max-width: 36ch;
+  /* align-items: flex-end; */
+  white-space: nowrap;
+}
 .trackTitle:hover,
 .trackArtist:hover,
 .trackTitle:focus,
