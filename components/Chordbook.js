@@ -214,7 +214,7 @@ export function Chordbook({
 		if (destination.droppableId === source.droppableId) {
 			// check the direction (> or <)
 			const directionOfDrag =
-				destination.index > source.index ? 'GREATER' : 'LESS'
+				destination.index >= source.index ? 'GREATER' : 'LESS'
 
 			// find the affected range
 			let affectedRange

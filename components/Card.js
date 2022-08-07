@@ -47,26 +47,26 @@ export const Card = ({ id, header, body, media }) => {
 
 	return (
 		<div className={`${styles.card} item-${id} flex`}>
-			<span>
+			{/* <span>
 				<div
-				// style={{
-				// 	display: 'inline',
-				// 	justifyContent: 'center',
-				// }}
+				style={{
+					display: 'inline',
+					justifyContent: 'center',
+				}}
 				>
-					{' '}
-					{/* {hasWindow && <Icon iconName={icons[id]} />} */}
-				</div>
-				<h3>{header}</h3>
-			</span>
+
+					{hasWindow && <Icon iconName={icons[id]} />}
+				</div> */}
+			<h3>{header}</h3>
+			{/* </span> */}
 			<div className={styles.media}>
 				{hasWindow && media.endsWith('mp4') ? (
 					<div className={`${styles.video}`}>
 						<ReactPlayer
 							className='react-player'
 							url={`/img/cards/${media}`}
-							// width="100%"
-							// style={{ maxHeight: '150px' }}
+							width={'100%'}
+							// height={'100%'}
 							muted={true}
 							playing={true}
 							playbackRate={0.7}
