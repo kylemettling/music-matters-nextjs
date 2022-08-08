@@ -198,9 +198,11 @@ export default function TrackDetail({ session }) {
 					trackId={id}
 					session={session}
 					loadedBooks={
-						skip
-							? JSON.parse(JSON.stringify(trackData?.chordbook?.data || ''))
-							: loadedChordbooks
+						// skip
+						// ?
+						JSON.parse(JSON.stringify(trackData?.chordbook?.data || '')) ||
+						// :
+						loadedChordbooks
 					}
 				/>
 			</div>
