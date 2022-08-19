@@ -188,14 +188,14 @@ function Chord({
                     </span>
                   )}
                 </div>
-                <div>
+                <div className={styles.copyChord}>
                   <MdContentCopy
-                    className={`${styles.chordControl} ${
-                      chordHover && !["blank", "starter"].includes(bookType)
+                    className={`${styles.chordControl}${
+                      chordHover && !["starter"].includes(bookType)
                         ? "active"
                         : ""
                     }`}
-                    onClick={(e) => handleCopy(id, bookId, e)}
+                    onClick={(e) => handleCopy(id, bookId)}
                   />
                 </div>
               </div>

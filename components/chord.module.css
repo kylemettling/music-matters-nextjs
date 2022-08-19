@@ -101,7 +101,8 @@
 .chordDegree.blank {
   cursor: grab;
 }
-.deleteChord {
+.deleteChord,
+.copyChord {
   /* background-color: blue; */
   cursor: pointer;
 }
