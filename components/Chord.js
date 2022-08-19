@@ -166,7 +166,7 @@ function Chord({
                 }
               />{" "}
               <div className={`${styles.chordFooter} flex`}>
-                <div>
+                <div className={styles.deleteChord}>
                   <FaTrashAlt
                     className={`${styles.chordControl}${
                       chordHover && !["blank", "starter"].includes(bookType)
