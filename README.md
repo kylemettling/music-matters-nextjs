@@ -28,7 +28,7 @@ This project culminated from finding myself having difficulties recalling chord 
 
 Take a look at these other examples that I have in my portfolio:
 
-**"Personal Portfolio":** [LIVE](https://kylemettling.com/) | [Code](https://github.com/kylemettling/portfolio-site)
+**Personal Portfolio:** [LIVE](https://kylemettling.com/) | [Code](https://github.com/kylemettling/portfolio-site)
 
 **Weather App (React):** [LIVE](https://wonders-weather.netlify.app/) | [Code](https://github.com/kylemettling/weather-app)
 
