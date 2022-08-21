@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Music Matters | Audio Arranged
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+[MusicMatters.life](https://musicmatters.life/) (hosted on Vercel)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![alt tag](screen.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## How It's Made:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+**Tech used:** Next.js, GraphQL, MongoDB, supabase, react-beautiful-dnd
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Companion app for musicians to create & customize chord progressions of searched songs. Ingress data influences the suggested
+scale of chord cards to drag and drop into track sections. Change key signatures, chord qualities/types, reorder cards on the fly. 
 
-## Learn More
+## Optimizations
 
-To learn more about Next.js, take a look at the following resources:
+Music Matters has moved to Next.js!!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Lessons Learned:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project culminated from finding myself having difficulties recalling chord progressions while improvising with guitar. 
 
-## Deploy on Vercel
+## TODOs:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Keep Exploring:
+
+Take a look at these other examples that I have in my portfolio:
+
+**"Personal Portfolio":** [LIVE](https://kylemettling.com/) | [CODE](https://github.com/kylemettling/portfolio-site)
+
+**Weather App (React):** [LIVE](https://wonders-weather.netlify.app/) | [Code](https://github.com/kylemettling/weather-app)
+
+**Baseball Pitch Guesser:** https://github.com/kylemettling/BaseballPitchGuesser
