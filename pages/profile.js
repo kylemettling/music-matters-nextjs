@@ -7,7 +7,8 @@ import { spotify } from '../components/config/connection'
 import axios from 'axios'
 import { Result } from './../components/Result'
 import styles from '../components/result.module.css'
-import Image from 'next/image'
+import Head from 'next/head'
+
 const GET_ALL_USER_TRACKS = gql`
 	query userChordbooks($userId: String!) {
 		userChordbooks(userId: $userId) {
@@ -84,17 +85,24 @@ export default function Profile() {
 	if (error) return <div>{error}</div>
 	// if (loading) return null
 	return (
-		<div style={{ textAlign: 'center' }}>
-			<h2>{`${profile.user_metadata.full_name}'s recent books:`}</h2>
-			<ul className={`${styles.profileResults} grid`}>
-				{allTracks &&
-					allTracks.map((track, i) => {
-						return <Result key={i} track={track} index={i} profile={true} />
-					})}
-			</ul>
-			{loading && (
-				<div>{`Loading ${profile.user_metadata.full_name}'s chordbooks...`}</div>
-			)}
-		</div>
+		<>
+			<Head>
+				<meta charSet='utf-8' />
+				<title>{`Music Matters | ${profile.user_metadata.full_name}`}</title>
+				<meta name='description' content='Music Matters - Audio Arranged' />
+			</Head>
+			<div style={{ textAlign: 'center' }}>
+				<h2>{`${profile.user_metadata.full_name}'s recent books:`}</h2>
+				<ul className={`${styles.profileResults} grid`}>
+					{allTracks &&
+						allTracks.map((track, i) => {
+							return <Result key={i} track={track} index={i} profile={true} />
+						})}
+				</ul>
+				{loading && (
+					<div>{`Loading ${profile.user_metadata.full_name}'s chordbooks...`}</div>
+				)}
+			</div>
+		</>
 	)
 }
