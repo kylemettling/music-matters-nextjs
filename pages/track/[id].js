@@ -46,7 +46,7 @@ export default function TrackDetail({ session }) {
 		skip: !skip && !session,
 	})
 	const { loadChordbooks } = useChordbook(null)
-	const [loadedChordbooks, setLoadedChordbooks] = useState()
+	const [loadedChordbooks, setLoadedChordbooks] = useState(loadChordbooks(id))
 	const {
 		songTitle,
 		songArtist,
