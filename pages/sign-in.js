@@ -8,6 +8,7 @@ export default function SignIn() {
 		const { error, data } = await supabase.auth.signIn({
 			provider: 'google',
 		})
+		console.log('DATA', data)
 		if (error) {
 			console.log({ error })
 		} else {
