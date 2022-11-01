@@ -34,6 +34,7 @@ function MyApp({ Component, pageProps }) {
 			},
 			{ redirectTo: env }
 		)
+		console.log(data)
 		if (error) {
 			console.log({ error })
 		}
