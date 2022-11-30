@@ -66,21 +66,20 @@ function MyApp({ Component, pageProps }) {
 				<nav>
 					{' '}
 					{pathname !== '/' && <BackButton />}
-					<Link href='/'>
-						<a>Home</a>
-					</Link>
+					<Link href='/'> Home</Link>
 					{session ? (
 						<>
 							<Link href='/profile'>
-								<a>{session?.user?.user_metadata?.full_name}</a>
+								{' '}
+								{session?.user?.user_metadata?.full_name}
 							</Link>
-							<Link href='#'>
-								<a onClick={() => signOut()}>Sign Out</a>
+							<Link href='#' onClick={() => signOut()}>
+								Sign Out
 							</Link>
 						</>
 					) : (
-						<Link href='#'>
-							<a onClick={() => signIn()}>Sign In</a>
+						<Link href='#' onClick={() => signIn()}>
+							Sign In
 						</Link>
 					)}{' '}
 					<a>

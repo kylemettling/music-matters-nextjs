@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { Cards } from '../components/Cards'
 import Link from 'next/link'
 import { cards } from '../lib/state/cards'
+// import TestElement from './test/index'
 
 export default function Home({ user, session }) {
 	const [profile, setProfile] = useState('')
@@ -33,6 +34,9 @@ export default function Home({ user, session }) {
 			</Head>
 
 			<main>
+				{/* {process.env.NODE_ENV === 'development' ? (
+					<TestElement></TestElement>
+				) : null} */}
 				<h2>Have something playing?</h2>
 				<Search />
 				<Cards cards={cards} />

@@ -30,24 +30,23 @@ export default function Header({ session }) {
 	return (
 		<>
 			<div className={styles.header}>
-				<Link href='/'>
-					<a
-						style={{
-							height: '125px',
-							width: '700px',
-							position: 'relative',
-						}}
-					>
-						<Image
-							aria-label='logo'
-							name='logo'
-							src={logo}
-							layout='fill'
-							className={styles.logo}
-							alt='logo'
-							priority
-						/>
-					</a>
+				<Link
+					href='/'
+					style={{
+						height: '125px',
+						width: '700px',
+						position: 'relative',
+					}}
+				>
+					<Image
+						aria-label='logo'
+						name='logo'
+						src={logo}
+						layout='fill'
+						className={styles.logo}
+						alt='logo'
+						priority
+					/>
 				</Link>
 			</div>
 		</>
