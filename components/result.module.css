@@ -28,15 +28,20 @@
 	gap: 30px;
 	/* margin: 0; */
 	padding: 15px;
+	/* text-decoration: none; */
 	transition: transform 0.15s ease-in;
 	transition-timing-function: cubic-bezier(1, -0.01, 0.85, 2.43);
 }
 .result:hover {
 	transform: scale(1.05);
 }
+.title,
+.artist {
+	/* text-decoration: none; */
+}
 .result a {
-	text-decoration: none;
 	color: var(--textColor);
+	/* text-decoration: none; */
 }
 .resultDetails {
 	display: flex;
@@ -90,6 +95,7 @@
 
 .albumImage:hover {
 }
+
 .title:hover,
 .artist:hover,
 .albumImage:hover {
@@ -98,6 +104,7 @@
 .releaseTime {
 	cursor: default;
 }
+
 .title {
 	font-size: var(--medText);
 }
