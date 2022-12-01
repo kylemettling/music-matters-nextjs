@@ -35,13 +35,12 @@
 .result:hover {
 	transform: scale(1.05);
 }
-.title,
-.artist {
-	/* text-decoration: none; */
+li .result {
+	text-decoration: none;
 }
 .result a {
 	color: var(--textColor);
-	/* text-decoration: none; */
+	text-decoration: none;
 }
 .resultDetails {
 	display: flex;

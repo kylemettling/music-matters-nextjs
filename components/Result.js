@@ -4,9 +4,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export function Result({ track, index, profile = false }) {
-	return (
-		<div>
-			<Link href={`/track/${track.id}`}>
+	return ( 
+			<Link href={`/track/${track.id}`} style={{ textDecoration: 'none' }}>
 				<li className={`${styles.result}`} key={index}>
 					<div className={`${styles.resultDetails}`}>
 						<span className={styles.titleCon}>
@@ -41,7 +40,6 @@ export function Result({ track, index, profile = false }) {
 						/>
 					</div>
 				</li>
-			</Link>
-		</div>
+			</Link> 
 	)
 }
