@@ -1,6 +1,38 @@
 import { useState, useEffect } from 'react'
+import { useAudioRecorder } from '../../lib/hooks'
 
 const TestElement = ({ API_KEY, API_HOST }) => {
+	const [audioURL, setAudioURL] = useState('')
+	let mediaRecorder,
+		chunks = []
+	const { status, stopRecording, startRecording } =
+		useAudioRecorder(mediaRecorder)
+	async function getMedia(contraints) {
+		console.log('ok?', contraints)
+		stream = navigator.mediaDevices
+			.getUserMedia({
+				audio: true,
+			})
+			.then((stream) => {
+				console.log(stream)
+				mediaRecorder = new MediaRecorder(stream)
+
+				mediaRecorder.ondataavailable = (e) => {
+					chunks.push(e.data)
+				}
+				mediaRecorder.onstop = () => {
+					const blob = new Blob(chunks, { type: 'audio/ogg; codex=opus' })
+					chunks = []
+					const audio = window.URL.createObjectURL(blob)
+					setAudioURL(audio)
+					console.log(audio)
+				}
+				// setAudioStream(stream)
+			})
+			.catch((err) => console.log('ERROR!', err))
+		console.log('stream!', stream)
+	}
+
 	const axios = require('axios')
 
 	const options = {
@@ -24,7 +56,19 @@ const TestElement = ({ API_KEY, API_HOST }) => {
 	// 		console.error(error)
 	// 	})
 
-	return <div></div>
+	return (
+		<>
+			<audio src={audioURL} controls></audio>
+			<button onClick={(e) => getMedia(e)}>Try me!</button>
+			<button onClick={(e) => clearMedia(e)}>Clear Device</button>
+			<div>
+				<span>Status: {status}</span>
+				<button onClick={(e) => startRecording()}>Start</button>
+				<button onClick={(e) => setStatus()}>Stop</button>
+			</div>
+			<span>{audioURL}</span>
+		</>
+	)
 }
 export default TestElement
 

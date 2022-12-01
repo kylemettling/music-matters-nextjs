@@ -154,6 +154,7 @@ export default function TrackDetail({ session }) {
 							{albumCoverURL && (
 								<Image
 									tabIndex={0}
+									layout='responsive'
 									className={styles.trackCover}
 									src={albumCoverURL.url || '/public/logo.svg'}
 									height={albumCoverURL.height || 200}
@@ -168,26 +169,25 @@ export default function TrackDetail({ session }) {
 					</div>
 					<div
 						className={styles.artistImageCon}
-						style={
-							{
-								// display: "flex",
-								// position: "relative",
-								//   maxHeight: "700px",
-								// maxWidth: '700px',
-								// height: "100%",
-								// justifySelf: "center",
-								// width: "100%",
-								// margin: "0 auto",
-							}
-						}
+						style={{
+							// display: "flex",
+							// position: "relative",
+							// maxHeight: '700px',
+							// maxWidth: '700px',
+							// height: "100%",
+							// justifySelf: "center",
+							height: artistCover.height || 200,
+							width: artistCover.width || 200,
+							// margin: "0 auto",
+						}}
 					>
 						{artistCover && (
 							<Image
 								tabIndex={0}
 								className={styles.artistImage}
-								src={artistCover.url || '/public/logo.svg'}
-								// layout="responsive"
-								// objectFit="contain"
+								src={artistCover.url}
+								// layout='responsive'
+								objectFit='fill'
 								height={artistCover.height || 200}
 								width={artistCover.width || 200}
 								alt={songAlbum + ' cover'}

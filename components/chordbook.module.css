@@ -15,12 +15,21 @@
 	background: var(--selectBackgroundColor);
 	outline: 2px var(--chordOutlineColor) solid;
 }
+.chordbook:first-child .chordbookHeader {
+	border-top: 8px var(--chordOutlineColor) solid;
+}
+.chordbook:last-child .chordbookHeader {
+	border-bottom: 8px var(--chordOutlineColor) solid;
+}
 .chordbookHeader {
 	display: grid;
 	align-items: flex-start;
 	background: var(--darkGrey);
-	border-right: 8px var(--chordOutlineColor) solid;
-	border-left: 8px var(--chordOutlineColor) solid;
+	/* border-right: 8px var(--chordOutlineColor) solid; */
+	/* border: 8px var(--chordOutlineColor) solid; */
+	border: 8px var(--chordOutlineColor) solid;
+	border-bottom: none;
+	border-top: none;
 	color: var(--white);
 }
 .chordbookHeader:first-child {
