@@ -5,31 +5,55 @@ const TestElement = ({ API_KEY, API_HOST }) => {
   const [audioURL, setAudioURL] = useState("");
   let mediaRecorder,
     chunks = [];
+
   const { status, stopRecording, startRecording } = useAudioRecorder();
   async function getMedia(contraints) {
     console.log("ok?", contraints);
-    stream = navigator.mediaDevices
-      .getUserMedia({
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
         audio: true,
-      })
-      .then((stream) => {
-        console.log(stream);
-        mediaRecorder = new MediaRecorder(stream);
+      });
+      // console.log("STREAM!", stream);
+      const audioTracks = stream.getAudioTracks();
+      console.log("AUDIO TRACKS!", audioTracks[0].label);
+      setAudioURL(stream);
+      // const mediaRecorder = new MediaRecorder(stream);
+      // mediaRecorder.ondataavailable = (e) => {
+      //   chunks.push(e.data);
+      // };
+      // mediaRecorder.onstop = () => {
+      //   const blob = new Blob(chunks, { type: "audio/ogg; codex=opus" });
+      //   chunks = [];
+      //   const audio = window.URL.createObjectURL(blob);
+      //   setAudioURL(audio);
+      //   console.log(audio);
+      // };
+    } catch (err) {
+      console.log("ERROR!", err);
+    }
+    // console.log("stream!", stream);
+    // console.log("ok?", contraints);
+    // stream = navigator.mediaDevices
+    //   .getUserMedia({
+    //     audio: true,
+    //   })
+    //   .then((stream) => {
+    //     console.log(stream);
+    //     mediaRecorder = new MediaRecorder(stream);
 
-        mediaRecorder.ondataavailable = (e) => {
-          chunks.push(e.data);
-        };
-        mediaRecorder.onstop = () => {
-          const blob = new Blob(chunks, { type: "audio/ogg; codex=opus" });
-          chunks = [];
-          const audio = window.URL.createObjectURL(blob);
-          setAudioURL(audio);
-          console.log(audio);
-        };
-        // setAudioStream(stream)
-      })
-      .catch((err) => console.log("ERROR!", err));
-    console.log("stream!", stream);
+    //     mediaRecorder.ondataavailable = (e) => {
+    //       chunks.push(e.data);
+    //     };
+    //     mediaRecorder.onstop = () => {
+    //       const blob = new Blob(chunks, { type: "audio/ogg; codex=opus" });
+    //       chunks = [];
+    //       const audio = window.URL.createObjectURL(blob);
+    //       setAudioURL(audio);
+    //       console.log(audio);
+    //     };
+    //   })
+    //   .catch((err) => console.log("ERROR!", err));
+    // console.log("stream!", stream);
   }
 
   const axios = require("axios");
