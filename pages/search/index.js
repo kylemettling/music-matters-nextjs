@@ -6,17 +6,16 @@ import axios from 'axios'
 import { useAppState } from '../../lib/state'
 import chordNotes from '../../lib/state'
 import Link from 'next/link'
-// import { useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 export default function Search() {
-	const [artistRequest, setArtistRequest] = useState('synchronicity')
+	const router = useRouter()
+	const query = router.query
 
 	const [searchResult, setSearchResult] = useState('')
 	const [searchToggle, setSearchToggle] = useState(false)
 	const [optionState, setOptionState] = useState('track')
-	const [searchQuery, setSearchQuery] = useState('synchronicity II')
-	// const router = useRouter()
-	// const query = router.query
+	const [searchQuery, setSearchQuery] = useState(query)
 	const {
 		token,
 		refreshToken,

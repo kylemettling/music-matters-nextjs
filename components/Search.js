@@ -7,12 +7,14 @@ import chordNotes from '../lib/state'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export default function Search() {
+export default function Search({ query }) {
 	const [optionState, setOptionState] = useState('track')
+	// const router = useRouter()
+	// const query = router.query
 	const [searchQuery, setSearchQuery] = useState(
-		process.env.NODE_ENV === 'development' ? 'synchronicity II' : ''
+		query || ''
+		// process.env.NODE_ENV === 'development' ? 'synchronicity II' : ''
 	)
-	const router = useRouter()
 	const { token, refreshToken, getStoredToken, clearTrackData } = useAppState()
 
 	useEffect(() => {

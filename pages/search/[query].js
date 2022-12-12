@@ -63,7 +63,7 @@ export default function Results() {
 				<title>Results | {query}</title>
 				<meta name='description' content='Music Matters - Audio Arranged' />
 			</Head>
-			<Search />
+			<Search query={query} />
 			{results && (
 				<ul className={`${styles.results} grid`}>
 					{results &&
