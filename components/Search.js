@@ -9,7 +9,7 @@ import { useRouter } from 'next/router'
 
 export default function Search({ query }) {
 	const [optionState, setOptionState] = useState('track')
-	// const router = useRouter()
+	const router = useRouter()
 	// const query = router.query
 	const [searchQuery, setSearchQuery] = useState(
 		query || ''
