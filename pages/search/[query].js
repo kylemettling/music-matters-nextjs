@@ -53,6 +53,11 @@ export default function Results() {
 		setResults(data)
 	}
 	useEffect(() => {
+		if (!token) {
+			refreshToken()
+		}
+	}, [])
+	useEffect(() => {
 		getSpotifySearchData(query)
 	}, [query])
 
