@@ -172,9 +172,7 @@ const TestElement = ({ API_KEY, API_HOST }) => {
 					subtitle.split(' ').join('')
 				)
 				setMatches(response?.data.track.title)
-				router.push(
-					`/search/${title.split(' ').join('') + subtitle.split(' ').join('')}`
-				)
+				router.push(`/search/${title} ${subtitle}`)
 			})
 			.catch(function (error) {
 				console.error(error)
