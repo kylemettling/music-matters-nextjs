@@ -58,8 +58,10 @@ export default function Results() {
 		}
 	}, [])
 	useEffect(() => {
-		getSpotifySearchData(query)
-	}, [])
+		if (token) {
+			getSpotifySearchData(query)
+		}
+	}, [token])
 
 	return (
 		<React.Fragment>
