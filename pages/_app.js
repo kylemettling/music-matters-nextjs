@@ -10,8 +10,9 @@ import { ApolloProvider, gql, useQuery } from '@apollo/client'
 import client from '../lib/apollo'
 import { BackButton } from '../components/BackButton'
 import { MdOutlinePalette } from 'react-icons/md'
+import { Shazam } from '../components/Shazam'
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, API_KEY, API_HOST }) {
 	const [themeToggle, setThemeToggle] = useState(true)
 	const router = useRouter()
 	const [session, setSession] = useState(null)
@@ -98,6 +99,7 @@ function MyApp({ Component, pageProps }) {
 							onClick={(e) => handleThemeToggle(e)}
 						/>
 					</a>
+					{pathname !== '/' && <Shazam apiHost={API_HOST} apiKey={API_KEY} />}
 				</nav>
 				<Header
 					includeBackButton={router.pathname !== '/' ? true : false}
@@ -118,4 +120,12 @@ export default MyApp
 											width={60}
 											style={{ borderRadius: '50%' }}
 										/> */
+}
+
+export async function getStaticProps(context) {
+	const API_KEY = process.env.X_RAPID_API_KEY
+	const API_HOST = process.env.X_RAPID_API_HOST
+	return {
+		props: { API_KEY, API_HOST },
+	}
 }
