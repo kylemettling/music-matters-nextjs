@@ -7,7 +7,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import Search from '../../components/Search'
 
-export default function Results() {
+export default function Results({ API_KEY, API_HOST }) {
 	const router = useRouter()
 	const { query } = router.query
 	const [results, setResults] = useState([])
@@ -70,7 +70,7 @@ export default function Results() {
 				<title>Results | {query}</title>
 				<meta name='description' content='Music Matters - Audio Arranged' />
 			</Head>
-			<Search query={query} />
+			<Search query={query} API_HOST={API_HOST} API_KEY={API_HOST} />
 			{results && (
 				<ul className={`${styles.results} grid`}>
 					{results &&
@@ -87,4 +87,12 @@ export default function Results() {
 			)}
 		</React.Fragment>
 	)
+}
+
+export async function getStaticProps(context) {
+	const API_KEY = process.env.X_RAPID_API_KEY
+	const API_HOST = process.env.X_RAPID_API_HOST
+	return {
+		props: { API_KEY, API_HOST },
+	}
 }

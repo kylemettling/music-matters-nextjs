@@ -99,7 +99,6 @@ function MyApp({ Component, pageProps, API_KEY, API_HOST }) {
 							onClick={(e) => handleThemeToggle(e)}
 						/>
 					</a>
-					{pathname !== '/' && <Shazam apiHost={API_HOST} apiKey={API_KEY} />}
 				</nav>
 				<Header
 					includeBackButton={router.pathname !== '/' ? true : false}
@@ -120,12 +119,4 @@ export default MyApp
 											width={60}
 											style={{ borderRadius: '50%' }}
 										/> */
-}
-
-export async function getStaticProps(context) {
-	const API_KEY = process.env.X_RAPID_API_KEY
-	const API_HOST = process.env.X_RAPID_API_HOST
-	return {
-		props: { API_KEY, API_HOST },
-	}
 }

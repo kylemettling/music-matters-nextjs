@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import shazam from '../public/img/shazam.svg'
+import Image from 'next/image'
 // import { StereoAudioRecorder } from 'recordrtc'
 // import {
 // invokeSaveAsDialog,
@@ -115,28 +117,6 @@ export function Shazam({ API_KEY, API_HOST }) {
 		return arr
 	}
 
-	async function getShazamSong(id) {
-		const options = {
-			method: 'POST',
-			url: 'https://shazam.p.rapidapi.com/songs/detect',
-			headers: {
-				'content-type': 'text/plain',
-				'X-RapidAPI-Key': API_KEY,
-				'X-RapidAPI-Host': API_HOST,
-			},
-			data: id,
-		}
-
-		axios
-			.request(options)
-			.then(function (response) {
-				console.log(response?.data)
-			})
-			.catch(function (error) {
-				console.error(error)
-			})
-	}
-
 	async function getShazamResult(base64) {
 		console.log('base in Options', base64)
 		// console.log('base in Options', audioBase64)
@@ -244,32 +224,24 @@ export function Shazam({ API_KEY, API_HOST }) {
 			<span>Device: {audioDevice}</span>
 			<span>Status: {isRecording ? 'recording' : 'not recording'}</span>
 			<span>TEST: {testBlob && testBlob.slice(0, 100)}</span>
-			{/* {blob && (
-				<span>
-					Audio:{' '}
-					{recorderRef.current.getDataURL((data) => setAudioBase64(data))}
-				</span>
-			)} */}
 			<div
 				style={{
 					display: 'flex',
 					flexDirection: 'column',
 				}}
 			>
-				{/* <button onClick={() => getMedia()}>Try me!</button> */}
 				<button onClick={() => handleSave()}>Save</button>
 				<button onClick={() => handleRecord()}>Record</button>
 				<button onClick={() => clearMedia()}>Clear Device</button>
 			</div>
-			{/* <span>AudioBase64: {JSON.stringify(audioBase64)}</span> */}
-			<div>
-				{/* <span>Status: {status}</span> */}
-				{/* <button onClick={(e) => startRecording({ mediaRecorder })}>
-					Start
-				</button>
-      <button onClick={(e) => setStatus({ mediaRecorder })}>Stop</button> */}
+			<div style={{ height: '150px', width: '150px' }}>
+				<Image
+					style={{ fill: 'red', stroke: 'pink' }}
+					src={shazam}
+					height={150}
+					width={150}
+				></Image>
 			</div>
-			{/* <span>{audioURL}</span> */}
 		</div>
 	)
 }

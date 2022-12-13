@@ -6,11 +6,12 @@ import { useAppState } from '../lib/state'
 import chordNotes from '../lib/state'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Shazam } from './Shazam'
 
-export default function Search({ query }) {
+export default function Search({ query, API_HOST, API_KEY }) {
 	const [optionState, setOptionState] = useState('track')
 	const router = useRouter()
-	// const query = router.query
+	const pathname = router.pathname
 	const [searchQuery, setSearchQuery] = useState(
 		query || ''
 		// process.env.NODE_ENV === 'development' ? 'synchronicity II' : ''
@@ -62,6 +63,10 @@ export default function Search({ query }) {
 				>
 					Fetch!
 				</button>
+
+				{/* {pathname !== '/' && */}
+				<Shazam API_HOST={API_HOST} API_KEY={API_KEY} />
+				{/* } */}
 			</div>
 			<style jsx>{`
 				select,

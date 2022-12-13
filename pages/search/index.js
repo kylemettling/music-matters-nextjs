@@ -8,7 +8,7 @@ import chordNotes from '../../lib/state'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export default function Search() {
+export default function Search({ API_HOST, API_KEY }) {
 	const router = useRouter()
 	const query = router.query
 
@@ -95,6 +95,7 @@ export default function Search() {
 							Fetch!
 						</button>
 					</Link>
+					<Search query={query} API_KEY={API_KEY} API_HOST={API_HOST} />
 				</div>
 			</div>
 			<style jsx>{`
@@ -106,3 +107,11 @@ export default function Search() {
 		</Fragment>
 	)
 }
+// export async function getStaticProps(context) {
+// 	const API_KEY = process.env.X_RAPID_API_KEY
+// 	const API_HOST = process.env.X_RAPID_API_HOST
+// 	console.log('KEYS', API_KEY, API_HOST)
+// 	return {
+// 		props: { API_KEY, API_HOST },
+// 	}
+// }
