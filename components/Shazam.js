@@ -246,10 +246,10 @@ export function Shazam({ API_KEY, API_HOST }) {
   );
 }
 // export default Shazam
-export async function getStaticProps(context) {
-  const API_KEY = process.env.X_RAPID_API_KEY;
-  const API_HOST = process.env.X_RAPID_API_HOST;
-  return {
-    props: { API_KEY, API_HOST },
-  };
-}
+// export async function getStaticProps(context) {
+//   const API_KEY = process.env.X_RAPID_API_KEY;
+//   const API_HOST = process.env.X_RAPID_API_HOST;
+//   return {
+//     props: { API_KEY, API_HOST },
+//   };
+// }
