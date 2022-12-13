@@ -115,12 +115,12 @@ export default function Search({ API_HOST, API_KEY }) {
 // 		props: { API_KEY, API_HOST },
 // 	}
 // }
-export const getStaticPaths = async () => {
-  return {
-    paths: [], //indicates that no page needs be created at build time
-    fallback: "blocking", //indicates the type of fallback
-  };
-};
+// export const getStaticPaths = async () => {
+//   return {
+//     paths: [], //indicates that no page needs be created at build time
+//     fallback: "blocking", //indicates the type of fallback
+//   };
+// };
 
 export async function getStaticProps(context) {
   const API_KEY = process.env.X_RAPID_API_KEY;
