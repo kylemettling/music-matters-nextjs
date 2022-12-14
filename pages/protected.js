@@ -7,10 +7,7 @@ export default function Protected() {
 	const router = useRouter()
 	const session = useSession()
 	const user = useUser()
-	useEffect(() => {
-		if (!session) router.push('/sign-in')
-	}, [session])
-
+	if (!session) return null
 	return (
 		<div>
 			<h2>Hello from protected route!</h2>
