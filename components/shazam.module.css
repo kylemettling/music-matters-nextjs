@@ -1,0 +1,14 @@
+.shazam:hover {
+	cursor: pointer;
+}
+.container {
+	display: flex;
+	justify-content: center;
+}
+.status {
+	color: green;
+}
+.shazamContainer {
+	height: '150px';
+	width: '150px';
+}

@@ -75,8 +75,7 @@ export default function SearchQuery({ API_KEY, API_HOST }) {
 			</Head>
 			<Header />
 			<Nav />
-			<Search query={query} />
-			<Shazam API_HOST={API_HOST} API_KEY={API_KEY} />
+			<Search query={query} API_HOST={API_HOST} API_KEY={API_KEY} />
 			{results && (
 				<ul className={`${styles.results} grid`}>
 					{results &&

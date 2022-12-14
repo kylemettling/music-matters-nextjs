@@ -1,30 +1,17 @@
 import Head from 'next/head'
 import Search from '../components/Search'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { Cards } from '../components/Cards'
-import Link from 'next/link'
 import { cards } from '../lib/state/cards'
 import Nav from '../components/Nav'
 import Header from '../components/Header'
-// import TestElement from './test/index'
+import { useUser } from '@supabase/auth-helpers-react'
 
-export default function Home({ user, session }) {
+export default function Home({ API_KEY, API_HOST }) {
 	const [profile, setProfile] = useState('')
-	//   async function checkUser() {
-	//     const user = await supabase.auth.user();
-
-	//     if (user) {
-	//       setProfile(user);
-	//     }
-	//   }
-
-	//   useEffect(() => {
-	//     checkUser();
-	//     if (!session) {
-	//       setProfile(null);
-	//     }
-	//   }, [session]);
+	const user = useUser()
+	const router = useRouter()
 
 	return (
 		<div>
@@ -37,31 +24,20 @@ export default function Home({ user, session }) {
 			<main>
 				<Header />
 				<Nav />
-				{/* {process.env.NODE_ENV === 'development' ? (
-					<TestElement></TestElement>
-				) : null} */}
 				<h2>Have something playing?</h2>
-				<span>{JSON.stringify(user)}</span>
-				<Search />
+
+				<Search API_HOST={API_HOST} API_KEY={API_KEY} />
 				<Cards cards={cards} />
 			</main>
 		</div>
 	)
 }
 
-// export async function getServerSideProps({ req }) {
-//   try {
-//     const { user } = await supabase.auth.api.getUserByCookie(req);
+export async function getStaticProps() {
+	const API_KEY = process.env.X_RAPID_API_KEY
+	const API_HOST = process.env.X_RAPID_API_HOST
 
-//     if (!user) {
-//       console.log("no user~");
-//       return { props: {} };
-//     }
-//     return { props: { user } };
-//   } catch (err) {
-//     console.log(err);
-//     return {
-//       props: {},
-//     };
-//   }
-// }
+	return {
+		props: { API_HOST, API_KEY },
+	}
+}

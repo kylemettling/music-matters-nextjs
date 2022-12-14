@@ -1,0 +1,8 @@
+.flavorText {
+	color: red;
+	display: flex;
+	gap: 200px;
+	/* flex-direction: row; */
+	/* align-content: space-around; */
+	/* align-items: center; */
+}

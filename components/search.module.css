@@ -3,12 +3,35 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	padding-top: 15px;
+	gap: 20px;
 }
 .main.flex select {
 	outline: 1px solid white;
 }
-
+.search {
+	/* display: flex; */
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 2fr);
+	gap: 5px;
+}
+.search input {
+	grid-column: span 2;
+	width: 23.5ch;
+}
+.search select {
+	display: flex;
+	text-align: center;
+	justify-content: center;
+}
+.flavorText {
+	display: flex;
+	justify-content: center;
+}
+.search .flavorText {
+	grid-column: span 2;
+	padding: 0;
+	margin: 0;
+}
 @media screen and (max-width: 730px) {
 	.main {
 		padding-top: 60px;
