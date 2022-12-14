@@ -2,11 +2,14 @@ import Image from 'next/image'
 import { useUser, useSession } from '@supabase/auth-helpers-react'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 export default function Protected() {
 	const router = useRouter()
 	const session = useSession()
 	const user = useUser()
-	if (!session) router.push('/sign-in')
+	useEffect(() => {
+		if (!session) router.push('/sign-in')
+	}, [session])
 
 	return (
 		<div>
