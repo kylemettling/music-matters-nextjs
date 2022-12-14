@@ -12,7 +12,7 @@ import Header from '../../components/Header'
 
 export default function SearchQuery({ API_KEY, API_HOST }) {
 	const router = useRouter()
-	const { query } = router.query
+	const { query } = router.query || ''
 	const [results, setResults] = useState([])
 	const {
 		token,
