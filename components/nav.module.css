@@ -1,0 +1,64 @@
+.themeSelectForward {
+	font-size: 2.5rem;
+	animation: rotateForward 0.4s forwards;
+	transform: rotate(30deg);
+}
+.themeSelectBackward {
+	font-size: 2.5rem;
+	animation: rotateBackward 0.5s forwards;
+}
+
+.themeSelect {
+	display: flex;
+	/* justify-self: center; */
+	/* justify-content: center; */
+	color: var(--buttonColor);
+	transform: rotate(-30deg);
+	font-size: 2rem;
+	transition: all 0.4s ease-in;
+	/* position: sticky; */
+	/* top: 0.25rem; */
+	/* left: 0; */
+	/* position: absolute; */
+}
+.themeSelect:hover {
+	filter: invert(100%) sepia(99%) saturate(17%) hue-rotate(242deg)
+		brightness(200%) contrast(100%);
+	cursor: pointer;
+}
+
+/* .header nav a + a {
+	margin-left: 10px;
+} */
+/* .themeSelect:focus {
+	outline: 2px var(--cursorOutlineColor) solid;
+} */
+@keyframes rotateForward {
+	0% {
+		/* transform: rotate(-30deg); */
+		transform: rotate(-30deg);
+	}
+	25% {
+		transform: rotate(-50deg);
+	}
+	50% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(30deg);
+	}
+}
+@keyframes rotateBackward {
+	0% {
+		transform: rotate(30deg);
+	}
+	25% {
+		transform: rotate(50deg);
+	}
+	50% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-30deg);
+	}
+}

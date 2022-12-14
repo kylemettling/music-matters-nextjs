@@ -9,6 +9,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { gql, useLazyQuery, useQuery, useMutation } from '@apollo/client'
+import Header from '../../components/Header'
+import Nav from '../../components/Nav'
 
 export default function TrackDetail({ session }) {
 	const router = useRouter()
@@ -128,6 +130,8 @@ export default function TrackDetail({ session }) {
 				<title>{`${songTitle} - ${songArtist}`}</title>
 				<meta name='description' content='Music Matters - Audio Arranged' />
 			</Head>
+			<Header />
+			<Nav />
 			<div className={styles.track}>
 				<div className={`${styles.detailCard}`}>
 					<div

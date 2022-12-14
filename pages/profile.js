@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '../pages/api/supabase'
+// import { supabase } from '../pages/api/supabase'
 import { useRouter } from 'next/router'
 import { gql, useLazyQuery } from '@apollo/client'
 import { useAppState } from './../lib/state/PageWrapper'
@@ -8,6 +8,13 @@ import axios from 'axios'
 import { Result } from './../components/Result'
 import styles from '../components/result.module.css'
 import Head from 'next/head'
+import {
+	useSession,
+	useUser,
+	useSupabaseClient,
+} from '@supabase/auth-helpers-react'
+import Nav from '../components/Nav'
+import Header from '../components/Header'
 
 const GET_ALL_USER_TRACKS = gql`
 	query userChordbooks($userId: String!) {
@@ -37,6 +44,9 @@ export default function Profile() {
 	const [profile, setProfile] = useState(null)
 	const [allTracks, setAllTracks] = useState([])
 	const router = useRouter()
+	const session = useSession()
+	const user = useUser()
+
 	const [getUserTracks, { data, loading, error }] =
 		useLazyQuery(GET_ALL_USER_TRACKS)
 
@@ -50,12 +60,12 @@ export default function Profile() {
 	}, [loading, data])
 
 	async function fetchProfile() {
-		const profileData = await supabase.auth.user()
-		if (!profileData) {
+		// const profileData = await supabase.auth.user()
+		if (!user) {
 			router.push('/sign-in')
 		} else {
-			setProfile(profileData)
-			getUserTracks({ variables: { userId: profileData.id } })
+			setProfile(user)
+			getUserTracks({ variables: { userId: user.id } })
 		}
 	}
 	async function getSpotifyTracks(trackIds) {
@@ -83,6 +93,7 @@ export default function Profile() {
 
 	if (!profile) return null
 	if (error) return <div>{error}</div>
+	if (!session) router.push('/')
 	// if (loading) return null
 	return (
 		<>
@@ -91,6 +102,8 @@ export default function Profile() {
 				<title>{`Music Matters | ${profile.user_metadata.full_name}`}</title>
 				<meta name='description' content='Music Matters - Audio Arranged' />
 			</Head>
+			<Header />
+			<Nav />
 			<div style={{ textAlign: 'center' }}>
 				<h2>{`${profile.user_metadata.full_name}'s recent books:`}</h2>
 				<ul className={`${styles.profileResults} grid`}>

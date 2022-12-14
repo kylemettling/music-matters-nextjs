@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { supabase } from '../pages/api/supabase'
+import { useSession } from '@supabase/auth-helpers-react'
 
 export default function SignIn() {
 	const [email, setEmail] = useState('')
 	const [submitted, setSubmitted] = useState(false)
+	const supabase = useSession()
 	async function signIn() {
 		const { error, data } = await supabase.auth.signIn({
 			provider: 'google',
