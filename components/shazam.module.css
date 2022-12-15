@@ -8,6 +8,11 @@
 .status {
 	color: green;
 }
+.shazam {
+	/* display: flex; */
+	justify-content: center;
+	height: 100%;
+}
 .shazamContainer {
 	height: '150px';
 	width: '150px';

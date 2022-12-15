@@ -18,7 +18,7 @@ export default function Search({ query, API_HOST, API_KEY }) {
 	)
 	const { token, refreshToken, getStoredToken, clearTrackData } = useAppState()
 	const FlavorText = ({ label }) => {
-		return <div className={styles.flavorText}>{label}</div>
+		return <h3 className={styles[`flavorText${label}`]}>{label}</h3>
 	}
 	useEffect(() => {
 		getStoredToken()
@@ -68,7 +68,7 @@ export default function Search({ query, API_HOST, API_KEY }) {
 						Fetch!
 					</button>
 				</div>
-				<span className={styles.or}>OR</span>
+				<h3 className={styles.or}>OR</h3>
 				{/* {pathname !== '/' && */}
 				<div>
 					{router.pathname === '/' && <FlavorText label='Shazam' />}

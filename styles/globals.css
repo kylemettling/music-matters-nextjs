@@ -313,11 +313,7 @@ button.cancel {
 button.small {
 	font-size: var(--smallText);
 }
-.flavorText {
-	color: red;
-	display: flex;
-	flex-direction: row;
-}
+
 .layout {
 	/* top padding header height + whatever visual padding we want */
 	padding: calc(3rem + var(--headerHeight)) var(--containerPadding);

@@ -1,8 +1,7 @@
 .main {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
+	/* justify-items: center; */
+	/* align-items: stretch; */
 	gap: 20px;
 }
 .main.flex select {
@@ -11,8 +10,11 @@
 .search {
 	/* display: flex; */
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 2fr);
+	grid-template-columns: repeat(auto-fill, 1fr);
 	gap: 5px;
+	/* grid-column: span 2; */
+	padding: 0;
+	margin: 0;
 }
 .search input {
 	grid-column: span 2;
@@ -21,16 +23,27 @@
 .search select {
 	display: flex;
 	text-align: center;
+	align-items: center;
 	justify-content: center;
 }
-.flavorText {
-	display: flex;
-	justify-content: center;
+.or {
+	align-self: center;
 }
-.search .flavorText {
-	grid-column: span 2;
+.flavorTextSearch,
+.flavorTextShazam {
 	padding: 0;
 	margin: 0;
+	margin-top: 1rem;
+	/* color: purple; */
+	display: flex;
+	/* flex-direction: column; */
+	justify-content: center;
+}
+.flavorTextSearch {
+	grid-column: span 2;
+}
+.search 
+/* .flavorText  */ {
 }
 @media screen and (max-width: 730px) {
 	.main {

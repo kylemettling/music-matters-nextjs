@@ -75,24 +75,9 @@ export function Shazam({ API_KEY, API_HOST }) {
 		setIsRecording(true)
 		setTimeout(() => {
 			recorderRef.current.stopRecording(() => {
-				// const Recorder
 				setBlob(URL.createObjectURL(recorderRef.current.getBlob()))
-				// setAudioBase64(
-				// getBase64(recorderRef.current.getBlob())
-				// )
-				let buffer = recorderRef.current
-				console.log(buffer)
-				// 				setAudioBase64(
-				// 	// _arrayBufferToBase64(
-				// 	getBase64(recorderRef.current.getBlob())
-				// 	// )
-				// )
 				getBase64(recorderRef.current.getBlob())
-				// setAudioBase64(newBase64)
 				setIsRecording(false)
-				// getShazamResult()
-				// setTimeout(() => {
-				// }, 1000)
 			})
 		}, 5000)
 	}
@@ -121,30 +106,20 @@ export function Shazam({ API_KEY, API_HOST }) {
 	}
 
 	async function getShazamResult(base64) {
-		console.log('base in Options', base64)
-		// console.log('base in Options', audioBase64)
 		const options = {
 			method: 'POST',
 			url: 'https://shazam.p.rapidapi.com/songs/detect',
-
-			// url: 'https://shazam-core.p.rapidapi.com/v1/tracks/recognize',
-			// url: 'https://shazam-song-recognizer.p.rapidapi.com/recognize',
-			// params: { timezone: 'America/LosAngeles', locale: 'en-US' },
 			headers: {
 				'content-type': 'text/plain',
 				'X-RapidAPI-Key': API_KEY,
 				'X-RapidAPI-Host': API_HOST,
 			},
-			// data: JSON.stringify({ audio_data: audioBase64.split('base64,')[1] }),
 			data: base64,
-			// body: audioBase64,
 		}
 
-		// console.log('options', audioBase64)
 		axios
 			.request(options)
 			.then(function (response) {
-				// console.log(response.json())
 				if (!response) {
 					router.push('/')
 				}
@@ -165,28 +140,13 @@ export function Shazam({ API_KEY, API_HOST }) {
 			})
 		setAudioBase64(base64)
 	}
-	const clearMedia = () => {
-		setAudioBase64(null)
-		setBlob(null)
-		console.log('done')
-	}
-	const handleSave = () => {
-		// invokeSaveAsDialog(audioBase64)
-	}
-	const handleStop = () => {
-		recorderRef.current.stopRecording(() => {
-			setBlob(recorderRef.current.getBlob())
-		})
-	}
 
 	const RecordedAudio = (props, ref) => {
 		return (
 			<audio
 				ref={audioRef}
 				src={'data:audio/ogg;base64,' + audioBase64}
-				// src={blob}
 				controls
-				// autoPlay
 			></audio>
 		)
 	}
@@ -202,54 +162,16 @@ export function Shazam({ API_KEY, API_HOST }) {
 		console.log(window.btoa(binary))
 		return window.btoa(binary)
 	}
-	// useEffect(() => {
-	// 	if (!audioDevice) {
-	// 		getMedia()
-	// 	}
-	// }, [audioDevice])
-
-	// useEffect(() => {
-	// 	if (audioBase64 !== null) {
-	// 		getShazamResult()
-	// 	}
-	// }, [audioBase64])
-
 	return (
 		<section className={styles.container}>
-			{/* {blob && <RecordedAudio />} */}
-			{/* 226007937 */}
-			{/* {JSON.stringify(matches)}
-			<span>Device: {audioDevice}</span>
-			<span>Status: {isRecording ? 'recording' : 'not recording'}</span>
-			<span>TEST: {testBlob && testBlob.slice(0, 100)}</span> */}
-			<div
-				style={{
-					display: 'flex',
-					flexDirection: 'column',
-				}}
-			>
-				{/* <button onClick={() => handleSave()}>Save</button>
-				<button onClick={() => handleRecord()}>Record</button>
-				<button onClick={() => clearMedia()}>Clear Device</button> */}
-			</div>
-			<div className={styles.shazamContainer} onClick={() => handleRecord()}>
-				<Image
-					alt='shazam'
-					className={styles.shazam}
-					src={shazam}
-					height={150}
-					width={150}
-				></Image>
-			</div>
-			<div className={styles.status}>{status}</div>
+			<Image
+				onClick={() => handleRecord()}
+				alt='shazam'
+				className={styles.shazam}
+				src={shazam}
+				height={150}
+				width={150}
+			></Image>
 		</section>
 	)
 }
-// export default Shazam
-// export async function getStaticProps(context) {
-//   const API_KEY = process.env.X_RAPID_API_KEY;
-//   const API_HOST = process.env.X_RAPID_API_HOST;
-//   return {
-//     props: { API_KEY, API_HOST },
-//   };
-// }
