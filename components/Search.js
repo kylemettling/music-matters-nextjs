@@ -32,41 +32,45 @@ export default function Search({ query, API_HOST, API_KEY }) {
 	return (
 		<Fragment>
 			<div className={`${styles.main} ${styles.flex}`}>
-				<div className={styles.search}>
+				<div>
 					{router.pathname === '/' && <FlavorText label='Search' />}
-					<input
-						type='text'
-						placeholder='enter track, artist, or album'
-						value={searchQuery}
-						onKeyDown={(e) =>
-							e.key === 'Enter' && searchQuery !== ''
-								? router.push(`/search/${searchQuery}`)
-								: null
-						}
-						onChange={(e) => setSearchQuery(e.target.value)}
-					/>
-					<select
-						name='search-type'
-						id='search-type'
-						value={optionState}
-						onChange={(e) => setOptionState(e.target.value)}
-					>
-						<option value='track'>Track</option>
-						<option value='artist' disabled={true}>
-							Artist
-						</option>
-						<option value='album' disabled={true}>
-							Album
-						</option>
-					</select>
-					<button
-						type='submit'
-						onClick={() =>
-							searchQuery !== '' ? router.push(`/search/${searchQuery}`) : null
-						}
-					>
-						Fetch!
-					</button>
+					<div className={styles.search}>
+						<input
+							type='text'
+							placeholder='enter track, artist, or album'
+							value={searchQuery}
+							onKeyDown={(e) =>
+								e.key === 'Enter' && searchQuery !== ''
+									? router.push(`/search/${searchQuery}`)
+									: null
+							}
+							onChange={(e) => setSearchQuery(e.target.value)}
+						/>
+						<select
+							name='search-type'
+							id='search-type'
+							value={optionState}
+							onChange={(e) => setOptionState(e.target.value)}
+						>
+							<option value='track'>Track</option>
+							<option value='artist' disabled={true}>
+								Artist
+							</option>
+							<option value='album' disabled={true}>
+								Album
+							</option>
+						</select>
+						<button
+							type='submit'
+							onClick={() =>
+								searchQuery !== ''
+									? router.push(`/search/${searchQuery}`)
+									: null
+							}
+						>
+							Fetch!
+						</button>
+					</div>
 				</div>
 				<h3 className={styles.or}>OR</h3>
 				{/* {pathname !== '/' && */}

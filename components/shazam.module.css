@@ -1,19 +1,7 @@
 .shazam:hover {
 	cursor: pointer;
-}
-.container {
-	display: flex;
-	justify-content: center;
+	/* filter: hue-rotate(270deg); */
 }
 .status {
 	color: green;
-}
-.shazam {
-	/* display: flex; */
-	justify-content: center;
-	height: 100%;
-}
-.shazamContainer {
-	height: '150px';
-	width: '150px';
 }
