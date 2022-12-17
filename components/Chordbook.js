@@ -8,16 +8,19 @@ import { useChordbook } from '../lib/hooks'
 import { ChordbookHeader } from './ChordbookHeader'
 import { useRouter } from 'next/router'
 import { gql, useQuery, useLazyQuery, useMutation } from '@apollo/client'
+import { useUser, useSession } from '@supabase/auth-helpers-react'
 
 export function Chordbook({
 	trackId,
 	// user,
-	session,
+	// session,
 	loadedBooks,
 	refetchChordbook,
 }) {
 	const { getScaleChords, songKeyCenterQuality, songKey } = useAppState()
 	const router = useRouter()
+	const user = useUser()
+	const session = useSession()
 	const { query } = router.query
 	const [isStorageChecked, setIsStorageChecked] = useState(false)
 	const [keyOptionState, setKeyOptionState] = useState(songKey)
@@ -113,17 +116,18 @@ export function Chordbook({
 		copy[bookId].chords = update
 		const newIds = sanitizeIds(copy)
 		setChordbooks(newIds)
-		if (session) {
-			updateDbChordbook({
-				variables: {
-					songId: trackId,
-					userId: session?.user?.id,
-					chordbooks: newIds,
-				},
-			})
-		} else if (!session) {
-			storeChordbooks(newIds, trackId)
-		}
+		handleStoreChordbook(newIds)
+		// if (session) {
+		// 	updateDbChordbook({
+		// 		variables: {
+		// 			songId: trackId,
+		// 			userId: session?.user?.id,
+		// 			chordbooks: newIds,
+		// 		},
+		// 	})
+		// } else if (!session) {
+		// 	storeChordbooks(newIds, trackId)
+		// }
 	}
 	function handleDeleteChord(id, bookId) {
 		const copy = chordbooks.slice()
@@ -133,17 +137,18 @@ export function Chordbook({
 		const newIds = sanitizeIds(copy)
 
 		setChordbooks(newIds)
-		if (session) {
-			updateDbChordbook({
-				variables: {
-					songId: trackId,
-					userId: session?.user?.id,
-					chordbooks: newIds,
-				},
-			})
-		} else if (!session) {
-			storeChordbooks(newIds, trackId)
-		}
+		handleStoreChordbook(newIds)
+		// if (session) {
+		// 	updateDbChordbook({
+		// 		variables: {
+		// 			songId: trackId,
+		// 			userId: session?.user?.id,
+		// 			chordbooks: newIds,
+		// 		},
+		// 	})
+		// } else if (!session) {
+		// 	storeChordbooks(newIds, trackId)
+		// }
 	}
 	const [updateDbChordbook, { data, loading, error }] = useMutation(
 		UPDATE_USER_TRACK,
@@ -307,17 +312,18 @@ export function Chordbook({
 		}
 		const newIds = sanitizeIds(chordbooks)
 		setChordbooks(newIds)
-		if (session) {
-			updateDbChordbook({
-				variables: {
-					songId: trackId,
-					userId: session?.user?.id,
-					chordbooks: newIds,
-				},
-			})
-		} else if (!session) {
-			storeChordbooks(newIds, trackId)
-		}
+		handleStoreChordbook(newIds)
+		// if (session) {
+		// 	updateDbChordbook({
+		// 		variables: {
+		// 			songId: trackId,
+		// 			userId: session?.user?.id,
+		// 			chordbooks: newIds,
+		// 		},
+		// 	})
+		// } else if (!session) {
+		// 	storeChordbooks(newIds, trackId)
+		// }
 	})
 	async function updateChordbookData() {}
 	useEffect(() => {
@@ -330,6 +336,20 @@ export function Chordbook({
 			setChordbooks(createStartingBook(songKey, songKeyCenterQuality, trackId))
 		}
 	}, [loadedBooks, songKey, songKeyCenterQuality, trackId])
+
+	async function handleStoreChordbook(newIds) {
+		if (session) {
+			updateDbChordbook({
+				variables: {
+					songId: trackId,
+					userId: user?.id,
+					chordbooks: newIds,
+				},
+			})
+		} else if (!session) {
+			storeChordbooks(newIds, trackId)
+		}
+	}
 
 	useEffect(() => {}, [])
 	// useEffect(() => {

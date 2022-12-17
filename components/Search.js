@@ -27,7 +27,7 @@ export default function Search({ query, API_HOST, API_KEY }) {
 		}
 		clearTrackData()
 		setOptionState(optionState)
-	}, [searchQuery])
+	}, [])
 
 	return (
 		<Fragment>
